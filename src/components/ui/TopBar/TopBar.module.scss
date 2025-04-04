@@ -1,0 +1,52 @@
+@import "@/styles/vars.scss";
+
+.wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topBar {
+    background-color: $colorBlue;
+    color: #fff;
+    padding: 5px 0;
+
+    @media (max-width: $breakpointMobile) {
+        display: none;
+    }
+
+    p {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 1;
+        color: #e9eaef;
+
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+}
+
+.ship {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contactInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    a {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 1;
+        color: #e9eaef;
+        text-decoration: none;
+
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+}
