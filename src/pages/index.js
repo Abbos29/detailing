@@ -1,4 +1,5 @@
 
+import Benefits from "@/components/layout/Benefits/Benefits";
 import Hero from "@/components/layout/Hero/Hero";
 import Head from "next/head";
 
@@ -13,6 +14,7 @@ export default function Home() {
       </Head>
 
       <Hero />
+      <Benefits />
     </>
   );
 }
