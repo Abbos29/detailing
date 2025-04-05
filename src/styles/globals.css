@@ -3,3 +3,30 @@
 * {
   font-family: "Work Sans", sans-serif;
 }
+
+section {
+  padding: 35px 0;
+
+  @media (max-width: 768px) {
+    padding: 15px 0;
+    
+  }
+}
+
+
+.swiper-pagination-bullet {
+  margin: 0 3px !important;
+  border: 1px solid #FFFFFF !important;
+  opacity: 1 !important;
+  width: 9px !important;
+  height: 4px !important;
+  background: none !important;
+  border-radius: 7px !important;
+  transition: 0.4s !important;
+
+}
+
+.swiper-pagination-bullet-active {
+  width: 18px !important;
+  background-color: #fff !important;
+}

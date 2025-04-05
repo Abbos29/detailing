@@ -1,5 +1,5 @@
-import Header from "@/components/layout/Header/Header";
-import TopBar from "@/components/ui/TopBar/TopBar";
+
+import Hero from "@/components/layout/Hero/Hero";
 import Head from "next/head";
 
 export default function Home() {
@@ -12,10 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <TopBar />
-
-      <Header />
-
+      <Hero />
     </>
   );
 }
