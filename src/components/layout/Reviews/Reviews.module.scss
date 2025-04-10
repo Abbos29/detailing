@@ -1,5 +1,8 @@
 .reviews {
     padding: 90px 0;
+    @media (max-width: 480px) {
+      padding: 40px 0;
+    }
 }
 
 .wrapper {

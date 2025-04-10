@@ -1,10 +1,9 @@
 @import "@/styles/vars.scss";
 
 .footer {
-    padding: 45px 0;
+    padding: 60px 0;
 
     @media (max-width: 480px) {
-      padding-top: 0;
     }
 }
 

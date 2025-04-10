@@ -17,7 +17,7 @@
     h1 {
         font-weight: 500;
         // font-size: 56px;
-        font-size: clamp(2.625rem, 2.25rem + 1.54vw, 3.5rem);
+        font-size: clamp(1.925rem, 1.6rem + 1.54vw, 3.5rem);
         line-height: 1.2;
         color: #1c2952;
     }
@@ -40,7 +40,8 @@
             align-items: center;
 
             font-weight: 500;
-            font-size: 24px;
+            // font-size: 24px;
+            font-size: clamp(1.125rem, 0.964rem + 0.66vw, 1.5rem);
             color: #1c2952;
 
             span {
@@ -52,7 +53,9 @@
 
         p {
             font-weight: 400;
-            font-size: 18px;
+            // font-size: 18px;
+            font-size: clamp(0.938rem, 0.857rem + 0.33vw, 1.125rem);
+            
             line-height: 1.2;
             margin-top: 22px;
         }
