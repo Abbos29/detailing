@@ -83,7 +83,8 @@
     p {
         font-weight: 400;
         font-size: 16px;
-        line-height: 100%;
+        line-height: 1.4;
+        margin-bottom: 15px;
         color: #1F2D5B;
     }
 
@@ -92,6 +93,18 @@
         gap: 12px;
         align-items: center;
         margin-top: 30px;
+
+        h5 {
+            font-size: 21px;
+            font-weight: 500;
+            color: #1C2952;
+        }
+
+        b {
+            font-size: 12px;
+            font-weight: 500;
+            color: #1F2D5B;
+        }
 
         .slide_icon {
             width: 52px;
