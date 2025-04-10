@@ -1,6 +1,9 @@
 
 import Benefits from "@/components/layout/Benefits/Benefits";
+import Faq from "@/components/layout/FAQ/Faq";
 import Hero from "@/components/layout/Hero/Hero";
+import RandomCards from "@/components/layout/RandomCards/RandomCards";
+import Reviews from "@/components/layout/Reviews/Reviews";
 import Head from "next/head";
 
 export default function Home() {
@@ -15,6 +18,9 @@ export default function Home() {
 
       <Hero />
       <Benefits />
+      <RandomCards />
+      <Faq />
+      <Reviews />
     </>
   );
 }

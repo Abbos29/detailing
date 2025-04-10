@@ -1,0 +1,59 @@
+.faq {
+    @media (max-width: 768px) {
+      padding: 40px 0;
+    }
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-weight: 500;
+        // font-size: 56px;
+        font-size: clamp(2.625rem, 2.25rem + 1.54vw, 3.5rem);
+        line-height: 1.2;
+        color: #1c2952;
+    }
+}
+
+.list {
+    > div {
+        border-top: 1px solid #babecc;
+        padding: 20px;
+
+        cursor: pointer;
+
+        &:last-child {
+            border-bottom: 1px solid #babecc;
+        }
+
+        h3 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-weight: 500;
+            font-size: 24px;
+            color: #1c2952;
+
+            span {
+                font-size: 40px;
+                line-height: 1;
+                display: block;
+            }
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.2;
+            margin-top: 22px;
+        }
+    }
+}

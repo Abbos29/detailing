@@ -9,7 +9,7 @@ section {
 
   @media (max-width: 768px) {
     padding: 15px 0;
-    
+
   }
 }
 
@@ -29,4 +29,50 @@ section {
 .swiper-pagination-bullet-active {
   width: 18px !important;
   background-color: #fff !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #000 !important;
+}
+
+
+.reviews-slider {
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    right: 20px !important;
+    bottom: 20px !important;
+    top: auto !important;
+    left: auto !important;
+
+    width: 36px !important;
+    height: 36px !important; 
+    border: 1px solid #1F2D5B !important;
+    border-radius: 50%;
+    z-index: 8 !important;
+    background-color: #fff !important;
+
+    transition: 0.4s !important;
+
+    &::after {
+      line-height: 1 !important;
+      font-size: 22px !important;
+      content: '→';
+      position: relative !important;
+      top: -1px !important;
+    }
+
+    &:hover {
+      color: #fff !important;
+      background-color: #1F2D5B !important;
+    }
+  }
+
+  .swiper-button-prev {
+    right: 70px !important;
+    &::after {
+      content: '←';
+    }
+  }
 }

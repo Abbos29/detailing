@@ -6,18 +6,16 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import NavBar from './NavBar';
 import NavTop from './NavTop';
+import useBurger from '@/store/useBurger';
 
 const Header = () => {
-    const [isMenu, setIsMenu] = useState(false);
     const router = useRouter();
 
-    const handleMenu = () => {
-        setIsMenu(!isMenu);
-    };
+    const {isMenu, toggleMenu} = useBurger();
 
     useEffect(() => {
         const handleRouteChange = () => {
-            setIsMenu(false);
+            toggleMenu();
         };
 
         router.events.on('routeChangeStart', handleRouteChange);
@@ -69,7 +67,7 @@ const Header = () => {
                             </div>
                         </div>
 
-                        <div className={`${s.burger} ${isMenu ? s.active : ''}`} onClick={handleMenu}>
+                        <div className={`${s.burger} ${isMenu ? s.active : ''}`} onClick={toggleMenu}>
                             <span className={s.line}></span>
                             <span className={s.line}></span>
                             <span className={s.line}></span>
