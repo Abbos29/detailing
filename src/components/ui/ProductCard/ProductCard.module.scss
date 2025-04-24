@@ -3,9 +3,22 @@
     flex-direction: column;
     gap: 10px;
 
+    &.horizontal {
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
     img {
         aspect-ratio: 1/1.1;
         object-fit: contain;
+        max-height: 350px;
     }
 
     h3 {

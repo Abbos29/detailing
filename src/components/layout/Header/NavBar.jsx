@@ -18,11 +18,17 @@ const simpleLinks = [
     { label: 'Brands', href: '/brands' },
 ];
 
-const NavBar = () => {
+const NavBar = ({ onLinkClick }) => {
     const [openMenu, setOpenMenu] = useState(null);
 
     const handleToggle = (label) => {
         setOpenMenu(openMenu === label ? null : label);
+    };
+
+    const handleClick = () => {
+        if (window.innerWidth < 768 && onLinkClick) {
+            onLinkClick();
+        }
     };
 
     return (
@@ -34,10 +40,7 @@ const NavBar = () => {
                         onClick={() => handleToggle(menu.label)}
                     >
                         {menu.label}
-                        <span
-                            className={`${s.arrow} ${openMenu === menu.label ? s.arrowOpen : ''
-                                }`}
-                        >
+                        <span className={`${s.arrow} ${openMenu === menu.label ? s.arrowOpen : ''}`}>
                             <IoIosArrowDown />
                         </span>
                     </div>
@@ -46,9 +49,10 @@ const NavBar = () => {
                             {menu.options.map((option, index) => (
                                 <a
                                     key={index}
-                                    //   href={`/category/${menu.label.toLowerCase()}/${index}`} 
+                                    //   href={/category/${menu.label.toLowerCase()}/${index}} 
                                     href={`/category/`}
                                     className={s.option}
+                                    onClick={handleClick}
                                 >
                                     {option}
                                 </a>
@@ -59,7 +63,12 @@ const NavBar = () => {
             ))}
 
             {simpleLinks.map((link) => (
-                <a key={link.label} href={link.href} className={s.link}>
+                <a
+                    key={link.label}
+                    href={link.href}
+                    className={s.link}
+                    onClick={handleClick}
+                >
                     {link.label}
                 </a>
             ))}

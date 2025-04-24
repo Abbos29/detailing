@@ -1,0 +1,201 @@
+.banner {
+    position: relative;
+    border-radius: 40px;
+    aspect-ratio: 1/0.4;
+    overflow: hidden;
+
+    img {
+        aspect-ratio: 1/0.4;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+}
+/* CatalogWrap.module.scss */
+
+.catalogWrap {
+    padding: 30px 0;
+}
+
+.wrapper {
+    display: flex;
+    gap: 30px;
+}
+
+.filter {
+    width: 280px;
+    min-width: 280px;
+
+    h3 {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1a2642;
+        margin-bottom: 24px;
+        text-transform: capitalize;
+    }
+}
+
+.filterMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.accordionItem {
+    border: 1px solid #d0d5e0;
+    border-radius: 8px;
+    overflow: hidden;
+
+    // Default state - navy blue for closed accordions
+    .accordionHeader {
+        background-color: #1a2642;
+
+        h4 {
+            color: white;
+        }
+
+        .icon {
+            color: white;
+        }
+
+        &:hover {
+            background-color: #243360;
+        }
+    }
+}
+
+// Active/open state - white background
+.accordionItem.active {
+    .accordionHeader {
+        background-color: #fff;
+
+        h4 {
+            color: #1a2642;
+        }
+
+        .icon {
+            color: #1a2642;
+        }
+
+        &:hover {
+            background-color: #f5f7fb;
+        }
+    }
+}
+
+.accordionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+
+    h4 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .icon {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+.accordionContent {
+    padding: 12px 20px;
+    background-color: #fff;
+    border-top: 1px solid #e5e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.filterOption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #7a8299;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        border: 1px solid #d0d5e0;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    &:hover {
+        color: #1a2642;
+    }
+}
+
+// Products section styles
+.products {
+    flex: 1;
+}
+
+.products__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.products__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    &.list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.loading {
+    text-align: center;
+    padding: 40px 0;
+    color: #7a8299;
+    font-size: 16px;
+}
+
+// View toggle styles
+.viewToggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.viewButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #d0d5e0;
+    border-radius: 4px;
+    background-color: white;
+    color: #7a8299;
+    cursor: pointer;
+
+    &:hover {
+        border-color: #b0b5c0;
+        color: #1a2642;
+    }
+
+    &.active {
+        background-color: #f5f7fb;
+        color: #1a2642;
+        border-color: #b0b5c0;
+    }
+
+    svg {
+        font-size: 18px;
+    }
+}

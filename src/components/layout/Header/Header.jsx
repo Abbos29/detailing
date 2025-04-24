@@ -1,29 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import s from './Header.module.scss';
 import Container from '@/components/ui/Container/Container';
 import { FaRegHeart, FaRegUser, FaSearch, FaShoppingBag } from 'react-icons/fa';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import NavBar from './NavBar';
 import NavTop from './NavTop';
 import useBurger from '@/store/useBurger';
 
 const Header = () => {
-    const router = useRouter();
-
-    const {isMenu, toggleMenu} = useBurger();
+    const { isMenu, toggleMenu } = useBurger();
 
     useEffect(() => {
-        const handleRouteChange = () => {
-            toggleMenu();
+        const handleOverflow = () => {
+            const isMobile = window.innerWidth < 768;
+            document.body.style.overflow = isMenu && isMobile ? 'hidden' : '';
         };
 
-        router.events.on('routeChangeStart', handleRouteChange);
+        handleOverflow(); 
 
+        window.addEventListener('resize', handleOverflow);
         return () => {
-            router.events.off('routeChangeStart', handleRouteChange);
+            window.removeEventListener('resize', handleOverflow);
+            document.body.style.overflow = '';
         };
-    }, [router]);
+    }, [isMenu]);
+
 
     return (
         <>
@@ -47,27 +48,30 @@ const Header = () => {
                             </div>
 
                             <div className={s.inner}>
-                                <Link href="/">
+                                <Link href="/" onClick={toggleMenu}>
                                     <FaRegHeart />
                                 </Link>
-                                <Link href="/">
+                                <Link href="/" onClick={toggleMenu}>
                                     <FaShoppingBag />
                                 </Link>
-                                <Link href="/">
+                                <Link href="/" onClick={toggleMenu}>
                                     <FaRegUser />
                                 </Link>
                             </div>
 
                             <div className={s.mobileNavTop}>
-                                <NavTop />
+                                <NavTop onLinkClick={toggleMenu} />
                             </div>
 
                             <div className={s.mobileNavbar}>
-                                <NavBar />
+                                <NavBar onLinkClick={toggleMenu} />
                             </div>
                         </div>
 
-                        <div className={`${s.burger} ${isMenu ? s.active : ''}`} onClick={toggleMenu}>
+                        <div
+                            className={`${s.burger} ${isMenu ? s.active : ''}`}
+                            onClick={toggleMenu}
+                        >
                             <span className={s.line}></span>
                             <span className={s.line}></span>
                             <span className={s.line}></span>
