@@ -1,17 +1,19 @@
-import ErrorWrap from '@/components/ui/ErrorWrap/ErrorWrap'
+import CartWrap from '@/components/layout/CartWrap/CartWrap'
+import PaymentWrap from '@/components/layout/PaymentWrap/PaymentWrap'
 import Seo from '@/components/ui/Seo/Seo'
 import React from 'react'
 
-const ErrorPage = () => {
+const Cart = () => {
     return (
         <>
             <Seo
-                title="404 Error"
+                title="Cart"
                 description="ASM platform for managing copyrights and licenses. Creating contracts, protecting property, rights marketplace."
             />
-            <ErrorWrap />
+            <CartWrap />
+            <PaymentWrap />
         </>
     )
 }
 
-export default ErrorPage
+export default Cart
