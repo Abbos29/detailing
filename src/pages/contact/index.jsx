@@ -1,17 +1,18 @@
-import ErrorWrap from '@/components/ui/ErrorWrap/ErrorWrap'
+import ContactWrap from '@/components/layout/ContactWrap/ContactWrap'
 import Seo from '@/components/ui/Seo/Seo'
 import React from 'react'
 
-const ErrorPage = () => {
+const contact = () => {
     return (
         <>
             <Seo
-                title="404 Error"
+                title="Contact"
                 description="ASM platform for managing copyrights and licenses. Creating contracts, protecting property, rights marketplace."
             />
-            <ErrorWrap />
+
+            <ContactWrap />
         </>
     )
 }
 
-export default ErrorPage
+export default contact

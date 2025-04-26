@@ -7,9 +7,9 @@ const Seo = ({
     image,
     url,
 }) => {
-    const defaultTitle = 'ASM Rights Holder — Платформа для управления авторскими правами'
-    const defaultDescription = 'Современная платформа для авторов, правообладателей и компаний: автоматизация авторских прав, договоры, защита и маркетплейс.'
-    const defaultKeywords = 'авторские права, интеллектуальная собственность, регистрация прав, маркетплейс лицензий, ASM Rights Holder'
+    const defaultTitle = 'ASM Rights Holder — Copyright Management Platform'
+    const defaultDescription = 'A modern platform for authors, copyright holders and companies: automation of copyrights, contracts, protection and marketplace.'
+    const defaultKeywords = 'copyright, intellectual property, rights registration, license marketplace, ASM Rights Holder'
     const defaultImage = 'https://yourdomain.com/preview.jpg'
     const defaultUrl = 'https://yourdomain.com/'
 
