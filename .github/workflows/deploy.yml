@@ -13,14 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-<<<<<<< HEAD
-=======
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.15'
-
->>>>>>> 9ee56f8f0ee65c9a5e58b4619fdbd90b6ae3786e
       - name: Install dependencies
         run: npm install
 
@@ -34,10 +26,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-<<<<<<< HEAD
-	    export PATH=$HOME/.local/bin:$PATH
-=======
->>>>>>> 9ee56f8f0ee65c9a5e58b4619fdbd90b6ae3786e
             cd /home/s/sheyhan14/detailing/detailing_frontend
             git pull
             npm install
