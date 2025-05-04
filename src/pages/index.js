@@ -5,7 +5,7 @@ import Hero from "@/components/layout/Hero/Hero";
 import RandomCards from "@/components/layout/RandomCards/RandomCards";
 import Reviews from "@/components/layout/Reviews/Reviews";
 import Seo from "@/components/ui/Seo/Seo";
-
+// 1
 export default function Home() {
   return (
     <>
