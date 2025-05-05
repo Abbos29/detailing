@@ -57,7 +57,7 @@ const ViewToggle = ({ view, setView }) => {
     )
 }
 
-const CatalogWrap = () => {
+const CatalogWrap = ({ data, categories, brands }) => {
     const [products, setProducts] = useState([])
     const [filterCategories, setFilterCategories] = useState([])
     const [loading, setLoading] = useState(true)
@@ -77,12 +77,7 @@ const CatalogWrap = () => {
     useEffect(() => {
         const fetchProducts = () => {
             setTimeout(() => {
-                const productData = [
-                    { id: 1, image: '/img/product1.png', name: 'MTM Hydro PF22.2 Foam Cannon', price: 25.23 },
-                    { id: 2, image: '/img/product1.png', name: 'MTM Hydro PF22.2 Foam Cannon', price: 25.23 },
-                    { id: 3, image: '/img/product1.png', name: 'MTM Hydro PF22.2 Foam Cannon', price: 25.23 },
-                ]
-                setProducts(productData)
+                setProducts(data)
                 setLoading(false)
             }, 500)
         }
@@ -90,9 +85,19 @@ const CatalogWrap = () => {
         const fetchFilterCategories = () => {
             setTimeout(() => {
                 const filterData = [
-                    { title: "Product Type", options: ["All Purpose Cleaners", "Carpet & Upholstery"] },
-                    { title: "Brand", options: ["MTM Hydro", "Chemical Guys"] },
-                ]
+                    {
+                        title: "Product Type",
+                        options: categories?.map(function (category) {
+                            return category.name;
+                        }),
+                    },
+                    {
+                        title: "Brand",
+                        options: brands?.map(function (brand) {
+                            return brand.name;
+                        }),
+                    },
+                ];
                 setFilterCategories(filterData)
             }, 500)
         }

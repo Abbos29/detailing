@@ -3,9 +3,24 @@ import CatalogWrap from '@/components/layout/CatalogWrap/CatalogWrap'
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs'
 import Container from '@/components/ui/Container/Container'
 import Seo from '@/components/ui/Seo/Seo'
+import { axiosInstanceProducts } from '@/utils/axios_products'
 import React from 'react'
 
-const catalog = () => {
+export const getServerSideProps = async () => {
+    const { data } = await axiosInstanceProducts.get("/products")
+    const { data: categories } = await axiosInstanceProducts.get("/categories")
+    const { data: brands } = await axiosInstanceProducts.get("/brands")
+
+    return {
+        props: {
+            data,
+            categories,
+            brands
+        }
+    }
+}
+
+const catalog = ({ data, categories, brands }) => {
     return (
         <>
             <Seo
@@ -18,7 +33,7 @@ const catalog = () => {
 
                 <CatalogBanner />
 
-                <CatalogWrap />
+                <CatalogWrap categories={categories} brands={brands} data={data} />
             </Container>
         </>
     )

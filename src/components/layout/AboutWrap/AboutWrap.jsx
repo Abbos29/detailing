@@ -2,10 +2,12 @@ import React from 'react'
 import s from './AboutWrap.module.scss'
 import Container from '@/components/ui/Container/Container'
 import ContactForm from '../ContactForm/ContactForm'
+import Seo from '@/components/ui/Seo/Seo'
 
-const AboutWrap = () => {
+const AboutWrap = ({ brands }) => {
     return (
         <>
+            <Seo title={'About Us'} />
             <section className={s.aboutWrap}>
                 <Container>
                     <div className={s.main1}>
@@ -26,15 +28,12 @@ const AboutWrap = () => {
                         </div>
                     </div>
                     <h2 className={s.brand_h2}>Brands we work with</h2>
-                   <main className={s.main}>
-                       <img className={s.brandimg} src="brand_1.png" alt="" />
-                       <img className={s.brandimg} src="brand_2.png" alt="" />
-                       <img className={s.brandimg} src="brand_3.png" alt="" />
-                       <img className={s.brandimg} src="brand_4.png" alt="" />
-                       <img className={s.brandimg} src="brand_5.png" alt="" />
-                       <img className={s.brandimg} src="brand_6.png" alt="" />
-                       <img className={s.brandimg} src="bramd_7.png" alt="" />
-                       <img className={s.brandimg} src="brand_1.png" alt="" />
+                    <main className={s.main}>
+                        {brands?.map((el) => {
+                            return (
+                                <img src={el?.image} alt={el?.name} key={el?.id} />
+                            )
+                        })}
                     </main>
                     <ContactForm />
                 </Container>

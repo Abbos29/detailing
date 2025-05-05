@@ -1,12 +1,23 @@
 import CategoryWrap from '@/components/layout/CategoryWrap/CategoryWrap'
 import ContactForm from '@/components/layout/ContactForm/ContactForm'
+import Seo from '@/components/ui/Seo/Seo'
+import { axiosInstanceProducts } from '@/utils/axios_products'
 import React from 'react'
 
-const category = () => {
+export const getServerSideProps = async () => {
+    const { data: categories } = await axiosInstanceProducts.get("/categories")
+    return {
+        props: {
+            categories
+        }
+    }
+}
+
+const category = ({ categories }) => {
     return (
         <>
-            <CategoryWrap />
-
+            <Seo title={'Categories Page'}/>
+            <CategoryWrap categories={categories} />
             <ContactForm />
 
         </>
