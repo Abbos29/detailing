@@ -6,9 +6,13 @@ import Link from 'next/link';
 import NavBar from './NavBar';
 import NavTop from './NavTop';
 import useBurger from '@/store/useBurger';
+import { useIsClient } from 'usehooks-ts';
+import { useCart } from 'react-use-cart';
 
 const Header = () => {
     const { isMenu, toggleMenu } = useBurger();
+    const isClient = useIsClient()
+    const { totalItems } = useCart()
 
     useEffect(() => {
         const handleOverflow = () => {
@@ -16,7 +20,7 @@ const Header = () => {
             document.body.style.overflow = isMenu && isMobile ? 'hidden' : '';
         };
 
-        handleOverflow(); 
+        handleOverflow();
 
         window.addEventListener('resize', handleOverflow);
         return () => {
@@ -48,13 +52,14 @@ const Header = () => {
                             </div>
 
                             <div className={s.inner}>
-                                <Link href="/" onClick={toggleMenu}>
+                                <Link href="/favourites" onClick={toggleMenu}>
                                     <FaRegHeart />
                                 </Link>
-                                <Link href="/" onClick={toggleMenu}>
+                                {isClient && <Link href="/cart" onClick={toggleMenu}>
                                     <FaShoppingBag />
-                                </Link>
-                                <Link href="/" onClick={toggleMenu}>
+                                    <sub>{totalItems}</sub>
+                                </Link>}
+                                <Link href="/auth" onClick={toggleMenu}>
                                     <FaRegUser />
                                 </Link>
                             </div>

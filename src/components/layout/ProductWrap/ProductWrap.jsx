@@ -3,20 +3,24 @@ import s from './ProductWrap.module.scss';
 import Container from '@/components/ui/Container/Container';
 import Button from '@/components/ui/Button/Button';
 import TabsWrap from '@/components/ui/TabsWrap/TabsWrap';
+import { useCart } from 'react-use-cart';
+import { useIsClient } from 'usehooks-ts';
 
-const ProductWrap = () => {
+const ProductWrap = ({ singleProduct, productImages }) => {
+  const { getItem, addItem, removeItem } = useCart();
+  const isClient = useIsClient();
   return (
     <section className={s.productWrap}>
       <Container>
         <div className={s.wrapper}>
           <div className={s.gallery}>
             <div className={s.thumbs}>
-              {[...Array(5)].map((_, i) => (
-                <img key={i} src={`/img/product-thumb.png`} alt={`Thumbnail ${i + 1}`} />
+              {productImages?.map((el) => (
+                <img key={el?.id} src={el?.image} alt={el?.id} />
               ))}
             </div>
             <div className={s.mainThumb}>
-              <img src="/img/product-thumb.png" alt="Main product view" />
+              <img src={singleProduct?.image} alt="Main product view" />
             </div>
           </div>
 
@@ -26,7 +30,7 @@ const ProductWrap = () => {
               <p>Manufacturer Part: <span>#G1301</span></p>
             </div>
 
-            <h1 className={s.title}>Griot's Garage The BOSS Foam Cannon</h1>
+            <h1 className={s.title}>{singleProduct?.name}</h1>
 
             <div className={s.rating}>
               {'★★★★★'.split('').map((star, i) => (
@@ -35,33 +39,35 @@ const ProductWrap = () => {
             </div>
 
             <p className={s.description}>
-              NARPPF M190 Matte is a premium matte paint protection film that offers maximum protection
-              combined with a distinctive matte finish. As professional installers with 15 years of experience,
-              we have chosen NARPPF for its exceptional quality and durability.
+              {singleProduct?.short_description}
             </p>
 
-            <div className={s.price}>$55.22</div>
+            <div className={s.price}>${singleProduct?.price}</div>
 
             <div className={s.meta}>
-              <p>Availability: <span>In Stock</span></p>
-              <p>Brand Name: <span>NARPPF</span></p>
+              <p>Availability: <span>{singleProduct?.availability ? 'In Stock' : 'Not Available'}</span></p>
+              <p>Brand Name: <span>{singleProduct?.brand?.name}</span></p>
             </div>
 
-            <div className={s.controls}>
-              <div className={s.counter}>
+            {isClient && <div className={s.controls}>
+              {/* <div className={s.counter}>
                 <button>+</button>
                 <span>2</span>
                 <button>-</button>
-              </div>
-              <Button>Add to Cart</Button>
-            </div>
+              </div> */}
+              {!getItem(singleProduct?.id) ? (
+                <Button onClick={() => addItem(singleProduct)}>Add to Cart</Button>
+              ) : (
+                <Button onClick={() => removeItem(singleProduct?.id)}>Remove from Cart</Button>
+              )}
+            </div>}
 
             <p className={s.shipping}>Shipping: <span>Usually ships the same or next business day</span></p>
           </div>
         </div>
 
-        <TabsWrap/>
-        
+        <TabsWrap />
+
       </Container>
     </section>
   );
