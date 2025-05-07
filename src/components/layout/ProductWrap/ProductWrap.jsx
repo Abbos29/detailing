@@ -5,8 +5,14 @@ import Button from '@/components/ui/Button/Button';
 import TabsWrap from '@/components/ui/TabsWrap/TabsWrap';
 import { useCart } from 'react-use-cart';
 import { useIsClient } from 'usehooks-ts';
+import { IoMdHeart } from "react-icons/io";
+import { FaRegHeart } from 'react-icons/fa';
+import { useAppContext } from '@/context/AppContext';
+
 
 const ProductWrap = ({ singleProduct, productImages }) => {
+  const { fav, handleAddToFav } = useAppContext();
+  const isFavourite = fav.some((favItem) => favItem.id === singleProduct?.id);
   const { getItem, addItem, removeItem } = useCart();
   const isClient = useIsClient();
   return (
@@ -30,7 +36,10 @@ const ProductWrap = ({ singleProduct, productImages }) => {
               <p>Manufacturer Part: <span>#G1301</span></p>
             </div>
 
-            <h1 className={s.title}>{singleProduct?.name}</h1>
+            <div className={s.twink}>
+              <h1 className={s.title}>{singleProduct?.name}</h1>
+              {!isFavourite ? <FaRegHeart className={s.icon} onClick={() => handleAddToFav(singleProduct)} /> : <IoMdHeart className={s.icon} onClick={() => handleAddToFav(singleProduct)} />}
+            </div>
 
             <div className={s.rating}>
               {'★★★★★'.split('').map((star, i) => (

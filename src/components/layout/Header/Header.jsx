@@ -8,10 +8,12 @@ import NavTop from './NavTop';
 import useBurger from '@/store/useBurger';
 import { useIsClient } from 'usehooks-ts';
 import { useCart } from 'react-use-cart';
+import { useAppContext } from '@/context/AppContext';
 
 const Header = () => {
     const { isMenu, toggleMenu } = useBurger();
     const isClient = useIsClient()
+    const { fav } = useAppContext()
     const { totalItems } = useCart()
 
     useEffect(() => {
@@ -52,9 +54,10 @@ const Header = () => {
                             </div>
 
                             <div className={s.inner}>
-                                <Link href="/favourites" onClick={toggleMenu}>
+                                {isClient && <Link href="/favourites" onClick={toggleMenu}>
                                     <FaRegHeart />
-                                </Link>
+                                    <sub>{fav.length}</sub>
+                                </Link>}
                                 {isClient && <Link href="/cart" onClick={toggleMenu}>
                                     <FaShoppingBag />
                                     <sub>{totalItems}</sub>
