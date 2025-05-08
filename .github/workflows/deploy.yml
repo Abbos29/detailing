@@ -13,11 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
       - name: Install dependencies
         run: npm install
 
@@ -30,9 +25,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
           script: |
-            cd /home/s/sheyhan14/detailing/detailing_frontend
-            git pull
-            npm install
-            npm run build
-            pm2 restart detailing.uz
+            bash -l -c "cd /var/www/detailing_front && git pull && npm install && npm run build && pm2 restart nartek.no"

@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'detailing.uz',
+      name: 'nartek.no',
       script: 'npm',
       args: 'start',
     },
