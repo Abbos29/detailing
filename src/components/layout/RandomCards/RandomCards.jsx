@@ -11,46 +11,7 @@ import { Navigation } from 'swiper/modules';
 import ProductCard from '@/components/ui/ProductCard/ProductCard';
 
 
-const products = [
-    {
-        id: 1,
-        image: '/img/product1.png',
-        name: 'Optimum Hyper Foam No Rinse - 32 oz 1',
-        price: 25.23,
-    },
-    {
-        id: 2,
-        image: '/img/product1.png',
-        name: 'Optimum Hyper Foam No Rinse - 32 oz 2',
-        price: 25.23,
-    },
-    {
-        id: 3,
-        image: '/img/product1.png',
-        name: 'Optimum Hyper Foam No Rinse - 32 oz 3',
-        price: 25.23,
-    },
-    {
-        id: 4,
-        image: '/img/product1.png',
-        name: 'Optimum Hyper Foam No Rinse - 32 oz 4',
-        price: 25.23,
-    },
-    {
-        id: 5,
-        image: '/img/product1.png',
-        name: 'Optimum Hyper Foam No Rinse - 32 oz 5',
-        price: 25.23,
-    },
-    {
-        id: 6,
-        image: '/img/product1.png',
-        name: 'Optimum Hyper Foam No Rinse - 32 oz 6',
-        price: 25.23,
-    },
-]
-
-const RandomCards = () => {
+const RandomCards = ({ products }) => {
     return (
         <>
             <section className={s.randomCards}>
@@ -75,7 +36,7 @@ const RandomCards = () => {
                                 },
                             }}
                         >
-                            {products.map((product) => (
+                            {products?.results?.map((product) => (
                                 <SwiperSlide key={product.id}>
                                     <ProductCard id={product.id} image={product.image} name={product.name} price={product.price} />
                                 </SwiperSlide>

@@ -1,10 +1,21 @@
 import AboutWrap from '@/components/layout/AboutWrap/AboutWrap'
+import { axiosInstanceProducts } from '@/utils/axios_products'
 import React from 'react'
 
-const about = () => {
+
+export const getServerSideProps = async () => {
+    const { data: brands } = await axiosInstanceProducts.get("/brands")
+    return {
+        props: {
+            brands
+        }
+    }
+}
+
+const about = ({ brands }) => {
     return (
         <>
-            <AboutWrap />
+            <AboutWrap brands={brands} />
         </>
     )
 }

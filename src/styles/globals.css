@@ -76,3 +76,22 @@ section {
     }
   }
 }
+
+.empty_cart{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 60px 0;
+  img{
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+  a{
+    font-size: 24px;
+    color: #1c2952;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}
