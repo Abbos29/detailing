@@ -5,14 +5,14 @@ import Seo from '@/components/ui/Seo/Seo'
 import { axiosInstanceProducts } from '@/utils/axios_products'
 import React from 'react'
 
-const ProductPage = ({ products, singleProduct, productImages }) => {
+const ProductPage = ({ products, singleProduct, }) => {
   return (
     <>
       <Seo
         title={singleProduct?.name}
         description={singleProduct?.short_description}
       />
-      <ProductWrap singleProduct={singleProduct} productImages={productImages} />
+      <ProductWrap singleProduct={singleProduct} />
       <RandomCards products={products} />
       <Benefits />
     </>
@@ -21,11 +21,14 @@ const ProductPage = ({ products, singleProduct, productImages }) => {
 
 export async function getServerSideProps(context) {
   const productID = context.params.id;
-  const { data: singleProduct } = await axiosInstanceProducts.get(`/products/${productID}`);
+  const { data: singleProduct } = await axiosInstanceProducts.get(`/products/${productID}/`);
   const { data: products } = await axiosInstanceProducts.get("/products")
-  const { data: productImages } = await axiosInstanceProducts.get("/products/images")
 
-  return { props: { singleProduct, products, productImages } };
+  return {
+    props: {
+      singleProduct, products,
+    }
+  };
 }
 
 

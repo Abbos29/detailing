@@ -36,7 +36,7 @@ const RandomCards = ({ products }) => {
                                 },
                             }}
                         >
-                            {products.map((product) => (
+                            {products?.results?.map((product) => (
                                 <SwiperSlide key={product.id}>
                                     <ProductCard id={product.id} image={product.image} name={product.name} price={product.price} />
                                 </SwiperSlide>

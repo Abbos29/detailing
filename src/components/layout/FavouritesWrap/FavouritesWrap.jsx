@@ -26,7 +26,7 @@ const FavouritesWrap = ({ fav }) => {
                 ) : (
                     <div className={s.empty}>
                         <img src='/img/empty-favourites.webp' alt="" />
-                        <h2>Empty...</h2>
+                        <h2>Not found...</h2>
                     </div>
                 )}
             </section>

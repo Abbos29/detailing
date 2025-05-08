@@ -9,7 +9,7 @@
     align-items: flex-start;
 
     @media (max-width: 992px) {
-      flex-direction: column;
+        flex-direction: column;
     }
 
 }
@@ -20,7 +20,7 @@
     // max-width: 400px;
 
     @media (max-width: 768px) {
-      flex-direction: column-reverse;
+        flex-direction: column-reverse;
     }
 
     .thumbs {
@@ -29,8 +29,8 @@
         gap: 10px;
 
         @media (max-width: 768px) {
-          flex-direction: row;
-          flex-wrap: wrap;
+            flex-direction: row;
+            flex-wrap: wrap;
         }
 
         img {
@@ -42,8 +42,8 @@
             border-radius: 8px;
 
             @media (max-width: 480px) {
-              width: 50px;
-              height: 50px;
+                width: 50px;
+                height: 50px;
             }
         }
     }
@@ -60,7 +60,7 @@
             border: 1px solid #ddd;
 
             @media (max-width: 480px) {
-              min-width: auto;
+                min-width: auto;
             }
         }
     }
@@ -95,8 +95,11 @@
     .rating {
         font-size: 18px;
         color: #ccc;
-        span {
-            margin-right: 4px;
+
+        .star {
+            cursor: pointer;
+            margin: 0 2px;
+            color: #192449;
         }
     }
 
@@ -160,11 +163,12 @@
     }
 }
 
-.twink{
+.twink {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .icon{
+
+    .icon {
         font-size: 33px;
         cursor: pointer;
     }

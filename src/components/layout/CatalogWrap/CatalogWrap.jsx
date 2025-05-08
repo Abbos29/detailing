@@ -1,110 +1,69 @@
-import React, { useState, useEffect } from 'react'
-import s from './CatalogWrap.module.scss'
-import Container from '@/components/ui/Container/Container'
-import { BsGrid, BsListUl } from 'react-icons/bs'
-import Dropdown from '@/components/ui/Dropdown/Dropdown'
-import ProductCard from '@/components/ui/ProductCard/ProductCard'
+import React, { useState, useEffect } from 'react';
+import s from './CatalogWrap.module.scss';
+import Container from '@/components/ui/Container/Container';
+import { BsGrid, BsListUl } from 'react-icons/bs';
+import Dropdown from '@/components/ui/Dropdown/Dropdown';
+import ProductCard from '@/components/ui/ProductCard/ProductCard';
+import ResponsivePagination from 'react-responsive-pagination';
+import 'react-responsive-pagination/themes/classic-light-dark.css';
 
-// Filter Accordion Component
 const FilterAccordion = ({ title, children, defaultOpen = false }) => {
-    const [isOpen, setIsOpen] = useState(defaultOpen)
-
+    const [isOpen, setIsOpen] = useState(defaultOpen);
     return (
         <div className={`${s.accordionItem} ${isOpen ? s.active : ''}`}>
-            <div
-                className={s.accordionHeader}
-                onClick={() => setIsOpen(!isOpen)}
-            >
+            <div className={s.accordionHeader} onClick={() => setIsOpen(!isOpen)}>
                 <h4>{title}</h4>
                 <span className={s.icon}>{isOpen ? '-' : '+'}</span>
             </div>
-            {isOpen && (
-                <div className={s.accordionContent}>
-                    {children}
-                </div>
-            )}
+            {isOpen && <div className={s.accordionContent}>{children}</div>}
         </div>
-    )
-}
+    );
+};
 
-// Filter Option Component
-const FilterOption = ({ label, checked = false }) => {
-    return (
-        <label className={s.filterOption}>
-            <input type="checkbox" defaultChecked={checked} />
-            <span>{label}</span>
-        </label>
-    )
-}
+const FilterOption = ({ label, checked = false, onChange }) => (
+    <label className={s.filterOption}>
+        <input
+            type="checkbox"
+            checked={checked}
+            onChange={(e) => onChange(label, e.target.checked)}
+        />
+        <span>{label}</span>
+    </label>
+);
 
-// View Toggle Component
-const ViewToggle = ({ view, setView }) => {
-    return (
-        <div className={s.viewToggle}>
-            <button
-                className={`${s.viewButton} ${view === 'grid' ? s.active : ''}`}
-                onClick={() => setView('grid')}
-            >
-                <BsGrid />
-            </button>
-            <button
-                className={`${s.viewButton} ${view === 'list' ? s.active : ''}`}
-                onClick={() => setView('list')}
-            >
-                <BsListUl />
-            </button>
-        </div>
-    )
-}
+const ViewToggle = ({ view, setView }) => (
+    <div className={s.viewToggle}>
+        <button
+            className={`${s.viewButton} ${view === 'grid' ? s.active : ''}`}
+            onClick={() => setView('grid')}
+        >
+            <BsGrid />
+        </button>
+        <button
+            className={`${s.viewButton} ${view === 'list' ? s.active : ''}`}
+            onClick={() => setView('list')}
+        >
+            <BsListUl />
+        </button>
+    </div>
+);
 
-const CatalogWrap = ({ data, categories, brands }) => {
-    const [products, setProducts] = useState([])
-    const [filterCategories, setFilterCategories] = useState([])
-    const [loading, setLoading] = useState(true)
+const CatalogWrap = ({ data, categories, brands, filters, onFilterChange, onPageChange }) => {
+    const { brand, category, ordering, page } = filters || {};
+    const totalPages = Math.ceil(data.count / 5); // Umumiy sahifalar soni, data.count ni backenddan olishingiz kerak
+    const [view, setView] = useState('grid');
+    const [products, setProducts] = useState(data);
 
-    const [view, setView] = useState('grid') //
-
-    const sortOptions = ['Best Selling', 'Price: Low to High', 'Price: High to Low', 'Newest', 'Oldest']
-
-    const handleSortChange = (option) => {
-        if (option === 'Price: Low to High') {
-            setProducts([...products].sort((a, b) => a.price - b.price))
-        } else if (option === 'Price: High to Low') {
-            setProducts([...products].sort((a, b) => b.price - a.price))
-        }
-    }
+    const sortOptions = ['Price: Low to High', 'Price: High to Low'];
 
     useEffect(() => {
-        const fetchProducts = () => {
-            setTimeout(() => {
-                setProducts(data)
-                setLoading(false)
-            }, 500)
-        }
+        setProducts(data);
+    }, [data]);
 
-        const fetchFilterCategories = () => {
-            setTimeout(() => {
-                const filterData = [
-                    {
-                        title: "Product Type",
-                        options: categories?.map(function (category) {
-                            return category.name;
-                        }),
-                    },
-                    {
-                        title: "Brand",
-                        options: brands?.map(function (brand) {
-                            return brand.name;
-                        }),
-                    },
-                ];
-                setFilterCategories(filterData)
-            }, 500)
-        }
-
-        fetchProducts()
-        fetchFilterCategories()
-    }, [])
+    const handleCheckbox = (label, checked, type) => {
+        const newFilters = { ...filters, [type]: checked ? label : '' };
+        onFilterChange(newFilters);
+    };
 
     return (
         <section className={s.catalogWrap}>
@@ -113,13 +72,26 @@ const CatalogWrap = ({ data, categories, brands }) => {
                     <div className={s.filter}>
                         <h3>Filters</h3>
                         <div className={s.filterMenu}>
-                            {filterCategories.map((category, index) => (
-                                <FilterAccordion key={category.title} title={category.title} defaultOpen={index === 0}>
-                                    {category.options.map(option => (
-                                        <FilterOption key={option} label={option} />
-                                    ))}
-                                </FilterAccordion>
-                            ))}
+                            <FilterAccordion title="Product Type" defaultOpen>
+                                {categories.map((cat) => (
+                                    <FilterOption
+                                        key={cat.name}
+                                        label={cat.name}
+                                        checked={cat.name === category}
+                                        onChange={(lbl, chk) => handleCheckbox(lbl, chk, 'category')}
+                                    />
+                                ))}
+                            </FilterAccordion>
+                            <FilterAccordion title="Brand">
+                                {brands.map((b) => (
+                                    <FilterOption
+                                        key={b.name}
+                                        label={b.name}
+                                        checked={b.name === brand}
+                                        onChange={(lbl, chk) => handleCheckbox(lbl, chk, 'brand')}
+                                    />
+                                ))}
+                            </FilterAccordion>
                         </div>
                     </div>
 
@@ -127,35 +99,47 @@ const CatalogWrap = ({ data, categories, brands }) => {
                         <div className={s.products__top}>
                             <Dropdown
                                 options={sortOptions}
-                                defaultValue="Best Selling"
+                                defaultValue={
+                                    ordering === 'price'
+                                        ? 'Price: Low to High'
+                                        : ordering === '-price'
+                                            ? 'Price: High to Low'
+                                            : 'Choose'
+                                }
                                 label="Sort by"
-                                onChange={handleSortChange}
+                                onChange={(selected) => {
+                                    const newOrdering = selected === 'Price: Low to High' ? 'price' : '-price';
+                                    onFilterChange({ ...filters, ordering: newOrdering });
+                                }}
                             />
                             <ViewToggle view={view} setView={setView} />
                         </div>
-
-                        <div className={`${s.products__list} ${view === 'list' ? s.list : ''}`}>
-                            {loading ? (
-                                <div className={s.loading}>Loading products...</div>
-                            ) : (
-                                products.map(product => (
-                                    <ProductCard
-                                        key={product.id}
-                                        id={product.id}
-                                        image={product.image}
-                                        name={product.name}
-                                        price={product.price}
-                                        view={view} // можно передать в карточку если нужно отображение менять внутри
-                                    />
-                                ))
-                            )}
-                        </div>
+                        {products?.results?.length ? (
+                            <div className={`${s.products__list} ${view === 'list' ? s.list : ''}`}>
+                                {products.results?.map((product) => (
+                                    <ProductCard key={product.id} {...product} view={view} />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className={s.empty}>
+                                <img src='/img/empty-favourites.webp' alt="" />
+                                <h2>Not found...</h2>
+                            </div>
+                        )}
                     </div>
+                </div>
+                <div className={s.pagintaion_wrap}>
+                    <ResponsivePagination
+                        className={s.page_filter}
+                        current={page}
+                        total={totalPages}
+                        onPageChange={onPageChange} // sahifa o‘zgarishi
+                    />
                 </div>
             </Container>
         </section>
-    )
-}
+    );
+};
 
+export default CatalogWrap;
 
-export default CatalogWrap

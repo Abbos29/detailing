@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './Header.module.scss';
 import Container from '@/components/ui/Container/Container';
 import { FaRegHeart, FaRegUser, FaSearch, FaShoppingBag } from 'react-icons/fa';
@@ -9,12 +9,28 @@ import useBurger from '@/store/useBurger';
 import { useIsClient } from 'usehooks-ts';
 import { useCart } from 'react-use-cart';
 import { useAppContext } from '@/context/AppContext';
+import { useRouter } from 'next/router';
 
 const Header = () => {
     const { isMenu, toggleMenu } = useBurger();
     const isClient = useIsClient()
     const { fav } = useAppContext()
     const { totalItems } = useCart()
+    const router = useRouter();
+    const [searchText, setSearchText] = useState('');
+
+    const handleSearch = () => {
+        if (searchText.trim()) {
+            router.push({
+                pathname: '/catalog',
+                query: { search: searchText.trim() },
+            });
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') handleSearch();
+    };
 
     useEffect(() => {
         const handleOverflow = () => {
@@ -47,8 +63,14 @@ const Header = () => {
 
                         <div className={`${s.burgerMenu} ${isMenu ? s.active : ''}`}>
                             <div className={s.search}>
-                                <input type="text" placeholder="Search" />
-                                <button>
+                                <input
+                                    type="text"
+                                    placeholder="Search"
+                                    value={searchText}
+                                    onChange={(e) => setSearchText(e.target.value)}
+                                    onKeyDown={handleKeyDown}
+                                />
+                                <button onClick={handleSearch}>
                                     <FaSearch />
                                 </button>
                             </div>

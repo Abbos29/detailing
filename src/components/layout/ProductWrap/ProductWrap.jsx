@@ -8,20 +8,45 @@ import { useIsClient } from 'usehooks-ts';
 import { IoMdHeart } from "react-icons/io";
 import { FaRegHeart } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
+import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 
 
-const ProductWrap = ({ singleProduct, productImages }) => {
+
+const ProductWrap = ({ singleProduct }) => {
   const { fav, handleAddToFav } = useAppContext();
   const isFavourite = fav.some((favItem) => favItem.id === singleProduct?.id);
   const { getItem, addItem, removeItem } = useCart();
   const isClient = useIsClient();
+
+
+  const renderRatingStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating - fullStars >= 0.5;
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+    const stars = [];
+
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<FaStar className={s.star} key={`full-${i}`} />);
+    }
+
+    if (hasHalfStar) {
+      stars.push(<FaStarHalfAlt className={s.star} key="half" />);
+    }
+
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(<FaRegStar className={s.star} key={`empty-${i}`} color="#ccc" />);
+    }
+
+    return stars;
+  };
   return (
     <section className={s.productWrap}>
       <Container>
         <div className={s.wrapper}>
           <div className={s.gallery}>
             <div className={s.thumbs}>
-              {productImages?.map((el) => (
+              {singleProduct?.images?.map((el) => (
                 <img key={el?.id} src={el?.image} alt={el?.id} />
               ))}
             </div>
@@ -32,8 +57,8 @@ const ProductWrap = ({ singleProduct, productImages }) => {
 
           <div className={s.info}>
             <div className={s.meta}>
-              <p>Item: <span>#PNS-G1301</span></p>
-              <p>Manufacturer Part: <span>#G1301</span></p>
+              <p>Item: <span>{singleProduct?.item}</span></p>
+              <p>Manufacturer Part: <span>{singleProduct?.manufacturer_part}</span></p>
             </div>
 
             <div className={s.twink}>
@@ -42,9 +67,7 @@ const ProductWrap = ({ singleProduct, productImages }) => {
             </div>
 
             <div className={s.rating}>
-              {'★★★★★'.split('').map((star, i) => (
-                <span key={i}>☆</span>
-              ))}
+              {renderRatingStars(singleProduct?.rating || 0)}
             </div>
 
             <p className={s.description}>
