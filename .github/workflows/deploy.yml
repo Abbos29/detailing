@@ -27,4 +27,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            bash -l -c "cd /var/www/detailing_front && git pull && npm install && npm run build && pm2 restart nartek.no"
+            cd /var/www/detailing_front
+            git pull
+            npm install
+            npm run build
+            pm2 restart nartek.no
