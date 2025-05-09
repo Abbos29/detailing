@@ -93,8 +93,15 @@
         font-size: 30px;
         color: #172244;
         text-decoration: none;
+
+        white-space: nowrap;
         sub{
             font-size: 20px;
+
+            // margin-left: 4px;
+            @media (max-width: 768px) {
+              font-size: 14px;
+            }
         }
 
        

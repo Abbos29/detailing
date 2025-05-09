@@ -19,12 +19,12 @@ export async function getServerSideProps({ query }) {
 
   const params = {
     page,
-    page_size: 5,
+    page_size: 6,
   }
-  if (brand)     params.brand     = brand
-  if (category)  params.category  = category
-  if (ordering)  params.ordering  = ordering
-  if (search)    params.search    = search
+  if (brand) params.brand = brand
+  if (category) params.category = category
+  if (ordering) params.ordering = ordering
+  if (search) params.search = search
 
   let data = { results: [], count: 0 }
   let categories = []
@@ -85,24 +85,24 @@ export default function CatalogPage({ data, categories, brands, filters }) {
   }, [filters.search, router.query.search])
 
   const handleFilterChange = newFilters => {
-    router.push(
+    router.replace(
       {
         pathname: '/catalog',
         query: { ...newFilters, page: 1 },
       },
       undefined,
-      { shallow: false }
+      { shallow: false, scroll: false }
     )
   }
 
   const handlePageChange = newPage => {
-    router.push(
+    router.replace(
       {
         pathname: '/catalog',
         query: { ...router.query, page: newPage },
       },
       undefined,
-      { shallow: false }
+      { shallow: false, scroll: false }
     )
   }
 

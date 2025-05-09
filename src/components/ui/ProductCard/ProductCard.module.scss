@@ -17,8 +17,18 @@
 
     img {
         aspect-ratio: 1/1.1;
-        object-fit: contain;
-        max-height: 350px;
+        object-fit: cover;
+        // max-height: 350px;
+        width: 100%;    
+
+        max-width: 350px;
+
+        @media (max-width: 768px) {
+          aspect-ratio: 1;
+        //   max-height: unset;
+
+        max-width: 300px;
+        }
     }
 
     h3 {

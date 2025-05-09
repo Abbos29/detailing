@@ -35,7 +35,7 @@
     line-height: 1.2;
     
     @media (max-width: 768px) {
-        width: 100%;
+        // width: 100%;
         text-align: left;
         padding: 0 15px;
     }
@@ -76,6 +76,10 @@
     color: #192449;
     display: block;
     margin-bottom: 32px;
+
+    @media (max-width: 480px) {
+        font-size: 26px;
+      }
 }
 
 .contactForm_input {
@@ -91,6 +95,7 @@
     
     @media (max-width: 768px) {
         width: 280px;
+        height: 55px;
     }
 }
 

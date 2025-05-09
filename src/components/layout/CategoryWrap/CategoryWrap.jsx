@@ -11,7 +11,19 @@ const CategoryWrap = ({ categories }) => {
                     <div className={s.wrapper}>
                         {categories?.map((el) => {
                             return (
-                                <Link key={el?.id} href={`/`}>
+                                <Link
+                                    key={el?.id}
+                                    href={{
+                                        pathname: '/catalog',
+                                        query: {
+                                            brand: '',
+                                            category: el?.id,
+                                            ordering: '',
+                                            search: '',
+                                            page: 1
+                                        }
+                                    }}
+                                >
                                     <div>
                                         <img src={el?.image} alt="" />
                                         <p>{el?.name}</p>

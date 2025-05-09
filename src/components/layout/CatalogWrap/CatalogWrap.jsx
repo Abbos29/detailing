@@ -77,8 +77,8 @@ const CatalogWrap = ({ data, categories, brands, filters, onFilterChange, onPage
                                     <FilterOption
                                         key={cat.name}
                                         label={cat.name}
-                                        checked={cat.name === category}
-                                        onChange={(lbl, chk) => handleCheckbox(lbl, chk, 'category')}
+                                        checked={cat.id === +category}
+                                        onChange={(lbl, chk) => handleCheckbox(cat.id, chk, 'category')}
                                     />
                                 ))}
                             </FilterAccordion>
@@ -87,8 +87,8 @@ const CatalogWrap = ({ data, categories, brands, filters, onFilterChange, onPage
                                     <FilterOption
                                         key={b.name}
                                         label={b.name}
-                                        checked={b.name === brand}
-                                        onChange={(lbl, chk) => handleCheckbox(lbl, chk, 'brand')}
+                                        checked={b.id === +brand}
+                                        onChange={(lbl, chk) => handleCheckbox(b.id, chk, 'brand')}
                                     />
                                 ))}
                             </FilterAccordion>

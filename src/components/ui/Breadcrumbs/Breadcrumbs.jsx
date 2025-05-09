@@ -1,23 +1,27 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import React from 'react'
 import s from './Breadcrumbs.module.scss'
 
 const Breadcrumbs = () => {
   const router = useRouter()
-  const pathParts = router.asPath.split('/').filter((part) => part)
+  
+  // Extract the path without query parameters
+  const pathWithoutQuery = router.asPath.split('?')[0]
+  const pathParts = pathWithoutQuery.split('/').filter((part) => part)
 
   return (
     <div className={s.breadcrumbs}>
       <Link href="/">Home</Link>
       {pathParts.map((part, index) => {
+        // Build the path for this breadcrumb
         const href = '/' + pathParts.slice(0, index + 1).join('/')
+        
         return (
-          <>
-            <span key={index}>
-              {' / '}
-            </span>
+          <React.Fragment key={index}>
+            <span>{' / '}</span>
             <Link href={href}>{decodeURIComponent(part)}</Link>
-          </>
+          </React.Fragment>
         )
       })}
     </div>
