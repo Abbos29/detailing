@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'; // Добавил useEffect
 import s from './ProductWrap.module.scss';
 import Container from '@/components/ui/Container/Container';
 import Button from '@/components/ui/Button/Button';
@@ -10,14 +10,26 @@ import { FaRegHeart } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 
-
-
 const ProductWrap = ({ singleProduct }) => {
+  const [initialImage, setInitialImage] = useState(''); // Добавил состояние для начального изображения
+  const [mainImage, setMainImage] = useState(singleProduct?.image);
+
+  // Сохраняем начальное изображение при первом рендере
+  useEffect(() => {
+    if (singleProduct?.image) {
+      setInitialImage(singleProduct.image);
+      setMainImage(singleProduct.image);
+    }
+  }, [singleProduct?.id]); // Обновляем только при изменении ID продукта
+
   const { fav, handleAddToFav } = useAppContext();
   const isFavourite = fav.some((favItem) => favItem.id === singleProduct?.id);
   const { getItem, addItem, removeItem } = useCart();
   const isClient = useIsClient();
 
+  const handleThumbnailClick = (imageUrl) => {
+    setMainImage(imageUrl);
+  };
 
   const renderRatingStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -40,18 +52,38 @@ const ProductWrap = ({ singleProduct }) => {
 
     return stars;
   };
+
   return (
     <section className={s.productWrap}>
       <Container>
         <div className={s.wrapper}>
           <div className={s.gallery}>
             <div className={s.thumbs}>
+              {initialImage && (
+                <img
+                  key="initial-image"
+                  src={initialImage}
+                  alt="Main product"
+                  onClick={() => handleThumbnailClick(initialImage)}
+                  style={{
+                    cursor: 'pointer',
+                  }}
+                />
+              )}
               {singleProduct?.images?.map((el) => (
-                <img key={el?.id} src={el?.image} alt={el?.id} />
+                <img
+                  key={el?.id}
+                  src={el?.image}
+                  alt={el?.id}
+                  onClick={() => handleThumbnailClick(el?.image)}
+                  style={{
+                    cursor: 'pointer',
+                  }}
+                />
               ))}
             </div>
             <div className={s.mainThumb}>
-              <img src={singleProduct?.image} alt="Main product view" />
+              <img src={mainImage} alt={singleProduct?.description} />
             </div>
           </div>
 
@@ -71,7 +103,7 @@ const ProductWrap = ({ singleProduct }) => {
             </div>
 
             <p className={s.description}>
-              {singleProduct?.short_description}
+              {singleProduct?.description}
             </p>
 
             <div className={s.price}>${singleProduct?.price}</div>
@@ -82,11 +114,6 @@ const ProductWrap = ({ singleProduct }) => {
             </div>
 
             {isClient && <div className={s.controls}>
-              {/* <div className={s.counter}>
-                <button>+</button>
-                <span>2</span>
-                <button>-</button>
-              </div> */}
               {!getItem(singleProduct?.id) ? (
                 <Button onClick={() => addItem(singleProduct)}>Add to Cart</Button>
               ) : (

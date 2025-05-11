@@ -51,16 +51,18 @@
     .mainThumb {
         img {
             width: 100%;
-            max-width: 457px;
+            max-width: 460px;
             min-width: 250px;
             aspect-ratio: 1;
             border-radius: 6px;
             height: 100%;
+            min-height: 460px;
             object-fit: contain;
             border: 1px solid #ddd;
 
             @media (max-width: 480px) {
                 min-width: auto;
+                min-height: 300px;
             }
         }
     }
