@@ -29,6 +29,9 @@ jobs:
           script: |
             cd /var/www/detailing_front
             git pull
+
+            source ~/.bashrc
+            
             npm install
             npm run build
             pm2 restart nartek.no
