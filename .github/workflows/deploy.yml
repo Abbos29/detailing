@@ -30,7 +30,8 @@ jobs:
             cd /var/www/detailing_front
             git pull
 
-            source ~/.bashrc
+            export PATH="$HOME/.local/share/fnm:$PATH"
+            eval "$(fnm env --shell=bash)"
             
             npm install
             npm run build
