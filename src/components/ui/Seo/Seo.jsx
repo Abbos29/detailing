@@ -10,7 +10,7 @@ const Seo = ({
     const defaultTitle = 'ASM Rights Holder — Copyright Management Platform'
     const defaultDescription = 'A modern platform for authors, copyright holders and companies: automation of copyrights, contracts, protection and marketplace.'
     const defaultKeywords = 'copyright, intellectual property, rights registration, license marketplace, ASM Rights Holder'
-    const defaultImage = 'https://yourdomain.com/preview.jpg'
+    const defaultImage = '/logo.png'
     const defaultUrl = 'https://yourdomain.com/'
 
     return (
@@ -40,7 +40,8 @@ const Seo = ({
             <link rel="canonical" href={url || defaultUrl} />
 
             {/* Favicon */}
-            <link rel="icon" href="/favicon.ico" />
+            {/* <link rel="icon" href="/favicon.ico" /> */}
+            <link rel="icon" href="/logo.png" />
         </Head>
     )
 }
