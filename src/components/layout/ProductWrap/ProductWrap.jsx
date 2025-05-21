@@ -83,7 +83,7 @@ const ProductWrap = ({ singleProduct }) => {
               ))}
             </div>
             <div className={s.mainThumb}>
-              <img src={mainImage} alt={singleProduct?.description} />
+              <img src={mainImage} alt={singleProduct?.name} />
             </div>
           </div>
 
@@ -103,7 +103,7 @@ const ProductWrap = ({ singleProduct }) => {
             </div>
 
             <p className={s.description}>
-              {singleProduct?.description}
+              {singleProduct?.short_description}
             </p>
 
             <div className={s.price}>${singleProduct?.price}</div>
@@ -125,7 +125,7 @@ const ProductWrap = ({ singleProduct }) => {
           </div>
         </div>
 
-        <TabsWrap />
+        <TabsWrap singleProduct={singleProduct} />
 
       </Container>
     </section>

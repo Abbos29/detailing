@@ -3,6 +3,7 @@ import s from './CartWrap.module.scss'
 import Container from '@/components/ui/Container/Container'
 import { useIsClient } from 'usehooks-ts'
 import { useCart } from 'react-use-cart'
+import { FaRegTrashAlt } from 'react-icons/fa'
 
 const CartWrap = () => {
     const isClient = useIsClient();
@@ -51,7 +52,9 @@ const CartWrap = () => {
                                             {/* <Button>Add to Cart</Button> */}
 
                                             <div onClick={() => removeItem(el.id)} className={s.delete_btn}>
-                                                <img src="/img/delete-icon.svg" alt="icon" />
+                                                <div className={s.trash}>
+                                                    <FaRegTrashAlt className={s.icon} />
+                                                </div>
                                                 Delete
                                                 {/* img ni normalniy qilish kere delete */}
                                             </div>
