@@ -4,20 +4,20 @@ import Container from '@/components/ui/Container/Container'
 
 const faqData = [
     {
-        question: "What types of detailing products do you offer?",
-        answer: "We offer a wide range of professional auto detailing products — from premium car shampoos, waxes, and polishes to specialized interior cleaners, microfiber towels, and application tools. Our catalog is designed to cater to both DIY enthusiasts and professional detailers.",
+        question: "Hvilke typer bilpleieprodukter tilbyr dere?",
+        answer: "Vi tilbyr et bredt utvalg av profesjonelle bilpleieprodukter — fra premium bilshampooer, voks og poleringsmidler til spesialiserte innvendige rengjøringsmidler, mikrofiberkluter og påføringsverktøy. Vårt sortiment er tilpasset både hobbyentusiaster og profesjonelle detailere.",
     },
     {
-        question: "What shipping options are available?",
-        answer: "We offer standard, express, and international shipping options. Shipping costs and delivery times vary based on your location and selected method.",
+        question: "Hvilke fraktalternativer er tilgjengelige?",
+        answer: "Vi tilbyr standard, ekspress og internasjonal frakt. Fraktkostnader og leveringstid varierer avhengig av din plassering og valgt fraktmetode.",
     },
     {
-        question: "What is your return policy?",
-        answer: "You can return unused products within 30 days of purchase. Products must be in their original packaging. Refunds are issued once the item is received and inspected.",
+        question: "Hva er deres returpolicy?",
+        answer: "Du kan returnere ubrukte produkter innen 30 dager etter kjøpet. Produktene må være i originalemballasjen. Refusjon utstedes når varen er mottatt og inspisert.",
     },
     {
-        question: "Do you offer product tutorials or guides?",
-        answer: "Yes, we provide detailed product tutorials, videos, and step-by-step guides on our website to help you get the most out of your purchase.",
+        question: "Tilbyr dere opplæringsvideoer eller guider?",
+        answer: "Ja, vi tilbyr detaljerte produktguider, videoer og trinnvise instruksjoner på nettsiden vår for å hjelpe deg med å få mest mulig ut av kjøpet ditt.",
     },
 ]
 
@@ -32,7 +32,7 @@ const Faq = () => {
         <section className={s.faq}>
             <Container>
                 <div className={s.wrapper}>
-                    <h1>Discover frequently asked questions</h1>
+                    <h1>Ofte stilte spørsmål</h1>
                     <div className={s.list}>
                         {faqData.map((item, index) => (
                             <div key={index} className={s.item}>

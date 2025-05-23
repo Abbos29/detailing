@@ -10,8 +10,8 @@ const ErrorWrap = () => {
                 <Container>
                     <div className={s.wrapper}>
                         <h1 className={s.title}>404</h1>
-                        <p className={s.text}>Page not found</p>
-                        <Link href="/" className={s.link}>Back to home</Link>
+                        <p className={s.text}>Siden ble ikke funnet</p>
+                        <Link href="/" className={s.link}>Tilbake til forsiden</Link>
                     </div>
                 </Container>
             </section>

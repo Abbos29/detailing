@@ -11,18 +11,18 @@ const AboutWrap = ({ brands, about_us }) => {
 
     return (
         <>
-            <Seo title={'About Us'} />
+            <Seo title={'Om oss'} />
             <section className={s.aboutWrap}>
                 <Container>
                     <div className={s.main1}>
                         <div className={s.main_left}>
-                            <img className={s.main_img} src={aboutUsData?.photo} alt="About Us" />
+                            <img className={s.main_img} src={aboutUsData?.photo} alt="Om oss" />
                         </div>
                         <div className={s.main_right}>
                             <p className={s.main_p}>{aboutUsData?.description}</p>
                         </div>
                     </div>
-                    <h2 className={s.brand_h2}>Brands we work with</h2>
+                    <h2 className={s.brand_h2}>Merker vi samarbeider med</h2>
                     <main className={s.main}>
                         {brands?.map((el) => {
                             return (

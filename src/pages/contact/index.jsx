@@ -6,10 +6,7 @@ import React from 'react'
 const contact = () => {
     return (
         <>
-            <Seo
-                title="Contact"
-                description="ASM platform for managing copyrights and licenses. Creating contracts, protecting property, rights marketplace."
-            />
+            <Seo />
 
             <ContactWrap />
 

@@ -7,25 +7,38 @@ const benefitsData = [
     {
         id: 1,
         image: "/img/benefit1.png",
-        title: "Exterior Detailing",
-        text: "With over 10 years of experience in the auto detailing industry, Sparkle & Shine Auto Detailing is your trusted partner for premium car care.",
-        list: ["Hand wash and dry", "Wax and polish", "Paint correction and scratch removal", "Tire dressing and trim restoration"],
+        title: "Utvendig Detaljering",
+        text: "Med over 10 års erfaring innen bilpleie er Sparkle & Shine Auto Detailing din pålitelige partner for førsteklasses bilpleie.",
+        list: [
+            "Håndvask og tørk",
+            "Voksing og polering",
+            "Lakkrens og fjerning av riper",
+            "Dekkbehandling og oppfrisking av plastdetaljer"
+        ],
         position: "right",
     },
     {
         id: 2,
         image: "/img/benefit2.png",
-        title: "Interior Detailing",
-        text: "Our team of skilled professionals uses state‐of‐the‐art techniques and eco-friendly products to restore and protect your vehicle. We believe that every detail counts and that quality service builds lasting relationships.",
-        list: ["Deep cleaning of carpets, seats, and upholstery", "Dashboard, console, and door panel treatment", "Stain removal and odor elimination"],
+        title: "Innvendig Detaljering",
+        text: "Vårt team av dyktige fagfolk bruker moderne teknikker og miljøvennlige produkter for å beskytte og gjenopprette kjøretøyet ditt. Vi mener at hver detalj teller og at kvalitet bygger langvarige relasjoner.",
+        list: [
+            "Dyp rengjøring av tepper, seter og trekk",
+            "Behandling av dashbord, konsoll og dørpaneler",
+            "Fjerning av flekker og lukt"
+        ],
         position: "left",
     },
     {
         id: 3,
         image: "/img/benefit3.png",
-        title: "Specialized Treatments",
-        text: "Revitalize your ride with expert care and a showroom finish every time. At Sparkle & Shine, we’re dedicated to making your car look its absolute best—inside and out.",
-        list: ["Ceramic Coating for long-lasting shine and protection", "Mobile Detailing: We come to you", "Seasonal Packages & Membership Discounts"],
+        title: "Spesialbehandlinger",
+        text: "Gi bilen din nytt liv med profesjonell pleie og en finish som på utstillingsrom. Hos Sparkle & Shine gjør vi vårt ytterste for at bilen din skal se best mulig ut – både innvendig og utvendig.",
+        list: [
+            "Keramisk coating for langvarig glans og beskyttelse",
+            "Mobil bilpleie: Vi kommer til deg",
+            "Sesongpakker og medlemsrabatter"
+        ],
         position: "right",
     },
 ];
@@ -40,16 +53,16 @@ const Benefits = () => {
                         <div className={`${s.benefit} ${s.main}`}>
                             <div className={s.video}>
                                 {/* <video src="" controls></video> */}
-                                <img src="/img/benefits-main.svg" alt="img" />
+                                <img src="/img/benefits-main-2.jpg" alt="img" />
                             </div>
 
                             <div className={s.content}>
-                                <h2>You can trust our brands they reprints quality  and trust. </h2>
-                                <h3>At Solterra, we believe that design is not just about aesthetics but about creating meaningful and sustainable spaces. </h3>
-                                <h4>We are committed to designing spaces that balance elegance, sustainability, and comfort. Our vision is to deliver design solutions that not only </h4>
+                                <h2>Du kan stole på våre merkevarer – de representerer kvalitet og tillit.</h2>
+                                <h3>Hos Solterra mener vi at design ikke bare handler om estetikk, men om å skape meningsfulle og bærekraftige rom.</h3>
+                                <h4>Vi er forpliktet til å designe rom som balanserer eleganse, bærekraft og komfort. Vår visjon er å levere designløsninger som ikke bare ...</h4>
                                 <div className={s.gallery}>
-                                    <img src="/img/benefit-main-1.png" alt="gallery-image" />
-                                    <img src="/img/benefit-main-2.png" alt="gallery-image" />
+                                    <img src="/img/benefit-main-1.png" alt="galleri-bilde" />
+                                    <img src="/img/benefit-main-2.png" alt="galleri-bilde" />
                                 </div>
                             </div>
                         </div>

@@ -15,7 +15,7 @@ const FavouritesWrap = ({ fav }) => {
                 {fav.length ? (
                     <Container>
                         <div className={s.clear_favs}>
-                            <Button onClick={clearFavs}>Clear Favourites</Button>
+                            <Button onClick={clearFavs}>Tøm favoritter</Button>
                         </div>
                         <div className={s.wrap}>
                             {fav?.map((el) => (
@@ -26,7 +26,7 @@ const FavouritesWrap = ({ fav }) => {
                 ) : (
                     <div className={s.empty}>
                         <img src='/img/empty-favourites.webp' alt="" />
-                        <h2>Not found...</h2>
+                        <h2>Ikke funnet...</h2>
                     </div>
                 )}
             </section>
@@ -35,5 +35,3 @@ const FavouritesWrap = ({ fav }) => {
 }
 
 export default FavouritesWrap
-
-

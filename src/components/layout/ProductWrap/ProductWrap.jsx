@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // Добавил useEffect
+import React, { useState, useEffect } from 'react';
 import s from './ProductWrap.module.scss';
 import Container from '@/components/ui/Container/Container';
 import Button from '@/components/ui/Button/Button';
@@ -11,16 +11,15 @@ import { useAppContext } from '@/context/AppContext';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 
 const ProductWrap = ({ singleProduct }) => {
-  const [initialImage, setInitialImage] = useState(''); // Добавил состояние для начального изображения
+  const [initialImage, setInitialImage] = useState('');
   const [mainImage, setMainImage] = useState(singleProduct?.image);
 
-  // Сохраняем начальное изображение при первом рендере
   useEffect(() => {
     if (singleProduct?.image) {
       setInitialImage(singleProduct.image);
       setMainImage(singleProduct.image);
     }
-  }, [singleProduct?.id]); // Обновляем только при изменении ID продукта
+  }, [singleProduct?.id]);
 
   const { fav, handleAddToFav } = useAppContext();
   const isFavourite = fav.some((favItem) => favItem.id === singleProduct?.id);
@@ -63,11 +62,9 @@ const ProductWrap = ({ singleProduct }) => {
                 <img
                   key="initial-image"
                   src={initialImage}
-                  alt="Main product"
+                  alt="Hovedprodukt"
                   onClick={() => handleThumbnailClick(initialImage)}
-                  style={{
-                    cursor: 'pointer',
-                  }}
+                  style={{ cursor: 'pointer' }}
                 />
               )}
               {singleProduct?.images?.map((el) => (
@@ -76,9 +73,7 @@ const ProductWrap = ({ singleProduct }) => {
                   src={el?.image}
                   alt={el?.id}
                   onClick={() => handleThumbnailClick(el?.image)}
-                  style={{
-                    cursor: 'pointer',
-                  }}
+                  style={{ cursor: 'pointer' }}
                 />
               ))}
             </div>
@@ -89,13 +84,16 @@ const ProductWrap = ({ singleProduct }) => {
 
           <div className={s.info}>
             <div className={s.meta}>
-              <p>Item: <span>{singleProduct?.item}</span></p>
-              <p>Manufacturer Part: <span>{singleProduct?.manufacturer_part}</span></p>
+              <p>Vare: <span>{singleProduct?.item}</span></p>
+              <p>Produsentdel: <span>{singleProduct?.manufacturer_part}</span></p>
             </div>
 
             <div className={s.twink}>
               <h1 className={s.title}>{singleProduct?.name}</h1>
-              {!isFavourite ? <FaRegHeart className={s.icon} onClick={() => handleAddToFav(singleProduct)} /> : <IoMdHeart className={s.icon} onClick={() => handleAddToFav(singleProduct)} />}
+              {!isFavourite ?
+                <FaRegHeart className={s.icon} onClick={() => handleAddToFav(singleProduct)} /> :
+                <IoMdHeart className={s.icon} onClick={() => handleAddToFav(singleProduct)} />
+              }
             </div>
 
             <div className={s.rating}>
@@ -109,24 +107,25 @@ const ProductWrap = ({ singleProduct }) => {
             <div className={s.price}>${singleProduct?.price}</div>
 
             <div className={s.meta}>
-              <p>Availability: <span>{singleProduct?.availability ? 'In Stock' : 'Not Available'}</span></p>
-              <p>Brand Name: <span>{singleProduct?.brand?.name}</span></p>
+              <p>Tilgjengelighet: <span>{singleProduct?.availability ? 'På lager' : 'Ikke tilgjengelig'}</span></p>
+              <p>Merkenavn: <span>{singleProduct?.brand?.name}</span></p>
             </div>
 
-            {isClient && <div className={s.controls}>
-              {!getItem(singleProduct?.id) ? (
-                <Button onClick={() => addItem(singleProduct)}>Add to Cart</Button>
-              ) : (
-                <Button onClick={() => removeItem(singleProduct?.id)}>Remove from Cart</Button>
-              )}
-            </div>}
+            {isClient && (
+              <div className={s.controls}>
+                {!getItem(singleProduct?.id) ? (
+                  <Button onClick={() => addItem(singleProduct)}>Legg i handlekurv</Button>
+                ) : (
+                  <Button onClick={() => removeItem(singleProduct?.id)}>Fjern fra handlekurv</Button>
+                )}
+              </div>
+            )}
 
-            <p className={s.shipping}>Shipping: <span>Usually ships the same or next business day</span></p>
+            <p className={s.shipping}>Frakt: <span>Vanligvis sendes samme dag eller neste virkedag</span></p>
           </div>
         </div>
 
         <TabsWrap singleProduct={singleProduct} />
-
       </Container>
     </section>
   );

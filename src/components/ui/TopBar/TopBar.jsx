@@ -10,18 +10,18 @@ const TopBar = () => {
             <Container>
                 <div className={s.wrap}>
                     <div className={s.ship}>
-                        <p>Free Shipping over $199*</p>
+                        <p>Gratis frakt over 199 $*</p>
                         <p>
-                            $9.95 Flat Rate Shipping
+                            9,95 $ fast fraktkostnad
                             <FaGlobe className={s.icon} />
                         </p>
                     </div>
 
                     <div className={s.contactInfo}>
                         <a href='tel:123456789'><FaPhone /> 1-234-567-899</a>
-                        <Link href="/gift-cards">Gift Cards</Link>
-                        <Link href="/track-order">Track Order</Link>
-                        <Link href="/help-center">Help Center</Link>
+                        <Link href="/gift-cards">Gavekort</Link>
+                        <Link href="/track-order">Spor bestilling</Link>
+                        <Link href="/help-center">Hjelpesenter</Link>
                     </div>
                 </div>
             </Container>

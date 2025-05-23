@@ -9,30 +9,30 @@ const Footer = () => {
             <Container>
                 <div className={s.wrapper}>
                     <div className={s.item}>
-                        <h3>Sign up and save with us</h3>
+                        <h3>Meld deg på og spar med oss</h3>
                         <p>
-                            Get 10% off your first order when you subscribe to receive exclusive offers and new product announcements!
+                            Få 10 % rabatt på din første bestilling når du abonnerer på eksklusive tilbud og produktnyheter!
                         </p>
-                        <button>Sign up</button>
+                        <button>Meld deg på</button>
                     </div>
                     <div className={s.item}>
-                        <h3>Customer Service</h3>
-                        <Link href="/help-center">Help Center</Link>
-                        <Link href="/shipping-delivery">Shipping & Delivery</Link>
-                        <Link href="/return-policy">Return Policy</Link>
-                        <Link href="/contact-us">Contact Us</Link>
+                        <h3>Kundeservice</h3>
+                        <Link href="/help-center">Hjelpesenter</Link>
+                        <Link href="/shipping-delivery">Frakt og levering</Link>
+                        <Link href="/return-policy">Returpolicy</Link>
+                        <Link href="/contact-us">Kontakt oss</Link>
                     </div>
                     <div className={s.item}>
-                        <h3>Resources</h3>
-                        <Link href="/coupons-promotions">Coupons & Promotions</Link>
-                        <Link href="/military-first-responders">Military & First Responders</Link>
+                        <h3>Ressurser</h3>
+                        <Link href="/coupons-promotions">Rabatter og kampanjer</Link>
+                        <Link href="/military-first-responders">Militær og nødetater</Link>
                     </div>
                     <div className={s.item}>
-                        <h3>Company Info</h3>
-                        <Link href="/classes-workshops">Classes & Workshops</Link>
-                        <Link href="/about-us">About Us</Link>
-                        <Link href="/retail-store">Retail Store</Link>
-                        <Link href="/gift-cards">Gift Cards</Link>
+                        <h3>Om selskapet</h3>
+                        <Link href="/classes-workshops">Kurs og verksteder</Link>
+                        <Link href="/about-us">Om oss</Link>
+                        <Link href="/retail-store">Butikk</Link>
+                        <Link href="/gift-cards">Gavekort</Link>
                     </div>
                 </div>
             </Container>

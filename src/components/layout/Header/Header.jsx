@@ -47,7 +47,6 @@ const Header = () => {
         };
     }, [isMenu]);
 
-
     return (
         <>
             <header className={s.header}>
@@ -65,7 +64,7 @@ const Header = () => {
                             <div className={s.search}>
                                 <input
                                     type="text"
-                                    placeholder="Search"
+                                    placeholder="Søk"
                                     value={searchText}
                                     onChange={(e) => setSearchText(e.target.value)}
                                     onKeyDown={handleKeyDown}
@@ -94,7 +93,7 @@ const Header = () => {
                             </div>
 
                             <div className={s.mobileNavbar}>
-                                <NavBar onLinkClick={toggleMenu} />
+                                {/* <NavBar onLinkClick={toggleMenu} /> */}
                             </div>
                         </div>
 
@@ -109,7 +108,7 @@ const Header = () => {
                     </div>
 
                     <div className={s.pcNavbar}>
-                        <NavBar />
+                        {/* <NavBar /> */}
                     </div>
                 </Container>
             </header>

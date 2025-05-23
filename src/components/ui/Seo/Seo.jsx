@@ -7,11 +7,11 @@ const Seo = ({
     image,
     url,
 }) => {
-    const defaultTitle = 'ASM Rights Holder — Copyright Management Platform'
-    const defaultDescription = 'A modern platform for authors, copyright holders and companies: automation of copyrights, contracts, protection and marketplace.'
-    const defaultKeywords = 'copyright, intellectual property, rights registration, license marketplace, ASM Rights Holder'
-    const defaultImage = '/logo.png'
-    const defaultUrl = 'https://yourdomain.com/'
+    const defaultTitle = 'Nartek - Kreative løsninger for din bedrift';
+    const defaultDescription = 'Nartek tilbyr profesjonelle tjenester innen webdesign, merkevarebygging og digital markedsføring. Vi hjelper bedrifter å vokse med kreative, effektive og moderne løsninger.';
+    const defaultKeywords = 'webdesign, merkevarebygging, digital markedsføring, kreative løsninger, norske bedrifter, UX, UI, e-handel, utvikling';
+    const defaultImage = '/logo.png';
+    const defaultUrl = 'https://nartek.no/';
 
     return (
         <Head>
@@ -24,7 +24,7 @@ const Seo = ({
 
             {/* Open Graph */}
             <meta property="og:type" content="website" />
-            <meta property="og:site_name" content="ASM Rights Holder" />
+            <meta property="og:site_name" content="" />
             <meta property="og:title" content={title || defaultTitle} />
             <meta property="og:description" content={description || defaultDescription} />
             <meta property="og:url" content={url || defaultUrl} />

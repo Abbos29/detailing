@@ -10,8 +10,8 @@ import 'swiper/css/pagination'
 const slides = [
     {
         id: 1,
-        title: 'An Outstanding Experience',
-        text: 'Working with WorkIn was an absolute game-changer. Their creativity, attention to detail, and dedication to delivering top-quality work exceeded my expectations. The entire process was smooth, and the final result was beyond what I imagined. Looking forward to collaborating again!',
+        title: 'En Fremragende Opplevelse',
+        text: 'Å jobbe med WorkIn var en virkelig game-changer. Deres kreativitet, sans for detaljer og dedikasjon til kvalitet overgikk alle forventninger. Prosessen var smidig, og sluttresultatet langt bedre enn jeg hadde forestilt meg. Gleder meg til neste samarbeid!',
         name: 'Michael J',
         role: 'CEO, TechWave',
         avatar: '/img/reviews-user-1.png',
@@ -19,8 +19,8 @@ const slides = [
     },
     {
         id: 2,
-        title: 'Professional and Creative',
-        text: 'The team at WorkIn brought our vision to life with such professionalism. They listened, iterated quickly, and delivered beyond what we imagined. Highly recommended!',
+        title: 'Profesjonelt og Kreativt',
+        text: 'Teamet hos WorkIn gjorde vår visjon til virkelighet med høy grad av profesjonalitet. De lyttet, jobbet raskt og leverte langt mer enn forventet. Anbefales på det sterkeste!',
         name: 'Sarah L',
         role: 'CMO, BrightSolutions',
         avatar: '/img/reviews-user-1.png',
@@ -28,10 +28,10 @@ const slides = [
     },
     {
         id: 3,
-        title: 'Exceptional Service',
-        text: 'From start to finish, the process was seamless. Great communication, amazing design, and fast delivery. We will definitely work with WorkIn again!',
+        title: 'Eksepsjonell Tjeneste',
+        text: 'Hele prosessen fra start til slutt var sømløs. God kommunikasjon, fantastisk design og rask levering. Vi kommer garantert til å samarbeide med WorkIn igjen!',
         name: 'David R',
-        role: 'Founder, DevCore',
+        role: 'Grunnlegger, DevCore',
         avatar: '/img/reviews-user-1.png',
         rating: '/img/stars-icon.svg',
     },
@@ -43,8 +43,8 @@ const Reviews = () => {
             <Container>
                 <div className={s.wrapper}>
                     <div className={s.box}>
-                        <h2>What our Client Says</h2>
-                        <p>From branding to web design, our work has helped businesses stand out with creativity</p>
+                        <h2>Hva våre kunder sier</h2>
+                        <p>Fra merkevarebygging til webdesign – vårt arbeid har hjulpet bedrifter med å skille seg ut gjennom kreativitet</p>
                     </div>
 
                     <div className={`${s.slider} reviews-slider`}>
@@ -61,7 +61,7 @@ const Reviews = () => {
                                     <div className={s.slide}>
                                         <h4>{slide.title}</h4>
                                         <p>{slide.text}</p>
-                                        <img src={slide.rating} alt="rating" />
+                                        <img src={slide.rating} alt="vurdering" />
 
                                         <div className={s.slide_box}>
                                             <img className={s.slide_icon} src={slide.avatar} alt={`${slide.name} avatar`} />

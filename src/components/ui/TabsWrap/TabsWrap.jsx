@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import s from './TabsWrap.module.scss';
 
-const tabItems = ['Description', 'Characteristics', 'Delivery and payment', 'Reviews'];
+const tabItems = ['Beskrivelse', 'Karakteristikker', 'Levering og betaling', 'Anmeldelser'];
 
 const TabsWrap = ({ singleProduct }) => {
-  const [activeTab, setActiveTab] = useState('Description');
+  const [activeTab, setActiveTab] = useState('Beskrivelse');
 
   return (
     <div className={s.tabs_wrap}>
@@ -22,20 +22,20 @@ const TabsWrap = ({ singleProduct }) => {
         </div>
 
         <div className={s.tabs_content}>
-          {activeTab === 'Description' && (
+          {activeTab === 'Beskrivelse' && (
             <div>
               <p>
                 {singleProduct?.description}
               </p>
             </div>
           )}
-          {activeTab === 'Characteristics' && <p>Here will be characteristics...</p>}
-          {activeTab === 'Delivery and payment' && <p>Info about delivery and payment...</p>}
-          {activeTab === 'Reviews' && <p>Customer reviews will go here...</p>}
+          {activeTab === 'Karakteristikker' && <p>Her kommer produktets karakteristikker...</p>}
+          {activeTab === 'Levering og betaling' && <p>Informasjon om levering og betaling...</p>}
+          {activeTab === 'Anmeldelser' && <p>Kundeanmeldelser vil vises her...</p>}
         </div>
       </div>
 
-      <img className={s.tabs_image} src="/img/tabs-image.png" alt="Product visual" />
+      <img className={s.tabs_image} src="/img/tabs-image.png" alt="Produktbilde" />
     </div>
   );
 };

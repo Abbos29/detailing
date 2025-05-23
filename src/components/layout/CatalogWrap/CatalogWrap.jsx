@@ -50,11 +50,11 @@ const ViewToggle = ({ view, setView }) => (
 
 const CatalogWrap = ({ data, categories, brands, filters, onFilterChange, onPageChange }) => {
     const { brand, category, ordering, page } = filters || {};
-    const totalPages = Math.ceil(data.count / 5); // Umumiy sahifalar soni, data.count ni backenddan olishingiz kerak
+    const totalPages = Math.ceil(data.count / 5); // Totalt antall sider, data.count må hentes fra backend
     const [view, setView] = useState('grid');
     const [products, setProducts] = useState(data);
 
-    const sortOptions = ['Price: Low to High', 'Price: High to Low'];
+    const sortOptions = ['Pris: Lav til Høy', 'Pris: Høy til Lav'];
 
     useEffect(() => {
         setProducts(data);
@@ -70,9 +70,9 @@ const CatalogWrap = ({ data, categories, brands, filters, onFilterChange, onPage
             <Container>
                 <div className={s.wrapper}>
                     <div className={s.filter}>
-                        <h3>Filters</h3>
+                        <h3>Filtre</h3>
                         <div className={s.filterMenu}>
-                            <FilterAccordion title="Product Type" defaultOpen>
+                            <FilterAccordion title="Produkttype" defaultOpen>
                                 {categories.map((cat) => (
                                     <FilterOption
                                         key={cat.name}
@@ -82,7 +82,7 @@ const CatalogWrap = ({ data, categories, brands, filters, onFilterChange, onPage
                                     />
                                 ))}
                             </FilterAccordion>
-                            <FilterAccordion title="Brand">
+                            <FilterAccordion title="Merke">
                                 {brands.map((b) => (
                                     <FilterOption
                                         key={b.name}
@@ -101,14 +101,14 @@ const CatalogWrap = ({ data, categories, brands, filters, onFilterChange, onPage
                                 options={sortOptions}
                                 defaultValue={
                                     ordering === 'price'
-                                        ? 'Price: Low to High'
+                                        ? 'Pris: Lav til Høy'
                                         : ordering === '-price'
-                                            ? 'Price: High to Low'
-                                            : 'Choose'
+                                            ? 'Pris: Høy til Lav'
+                                            : 'Velg'
                                 }
-                                label="Sort by"
+                                label="Sorter etter"
                                 onChange={(selected) => {
-                                    const newOrdering = selected === 'Price: Low to High' ? 'price' : '-price';
+                                    const newOrdering = selected === 'Pris: Lav til Høy' ? 'price' : '-price';
                                     onFilterChange({ ...filters, ordering: newOrdering });
                                 }}
                             />
@@ -123,7 +123,7 @@ const CatalogWrap = ({ data, categories, brands, filters, onFilterChange, onPage
                         ) : (
                             <div className={s.empty}>
                                 <img src='/img/empty-favourites.webp' alt="" />
-                                <h2>Not found...</h2>
+                                <h2>Ikke funnet...</h2>
                             </div>
                         )}
                     </div>
@@ -133,7 +133,7 @@ const CatalogWrap = ({ data, categories, brands, filters, onFilterChange, onPage
                         className={s.page_filter}
                         current={page}
                         total={totalPages}
-                        onPageChange={onPageChange} // sahifa o‘zgarishi
+                        onPageChange={onPageChange} // sideendring
                     />
                 </div>
             </Container>
@@ -142,4 +142,3 @@ const CatalogWrap = ({ data, categories, brands, filters, onFilterChange, onPage
 };
 
 export default CatalogWrap;
-

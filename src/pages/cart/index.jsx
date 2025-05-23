@@ -11,10 +11,7 @@ const Cart = () => {
     const { isEmpty } = useCart()
     return (
         <>
-            <Seo
-                title="Cart"
-                description="ASM platform for managing copyrights and licenses. Creating contracts, protecting property, rights marketplace."
-            />
+            <Seo />
             {isClient && !isEmpty ? (
                 <>
                     <CartWrap />
@@ -22,8 +19,8 @@ const Cart = () => {
                 </>
             ) : (
                 <div className="empty_cart">
-                    <img src="/img/empty.webp" alt="" />
-                    <Link href={'/catalog'}>Comeback to Catalog</Link>
+                    <img src="/img/empty.webp" alt="Tom handlekurv" />
+                    <Link href={'/catalog'}>Gå tilbake til katalogen</Link>
                 </div>
             )}
         </>

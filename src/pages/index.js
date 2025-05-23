@@ -19,10 +19,7 @@ export default function Home({ products }) {
   return (
     <>
 
-      <Seo
-        title="Detailing"
-        description="Платформа ASM для управления авторскими правами и лицензиями. Создание договоров, защита собственности, маркетплейс прав."
-      />
+      <Seo />
 
       <Hero />
       <Benefits />

@@ -42,13 +42,13 @@ ${item.quantity} x ${item.price} $ = ${item.quantity}
         {isClient && <div className={s.wrapper}>
 
           <div className={s.wrap}>
-            <h3>Payment</h3>
-            <p>Choose your payment method</p>
+            <h3>Betaling</h3>
+            <p>Velg din betalingsmetode</p>
 
             <div className={s.paymentMethods}>
               {[...Array(4)].map((_, index) => (
                 <div key={index} className={s.paymentCard}>
-                  <img src="/img/payment-icon.svg" alt="Payment method" />
+                  <img src="/img/payment-icon.svg" alt="Betalingsmetode" />
                 </div>
               ))}
             </div>
@@ -56,22 +56,22 @@ ${item.quantity} x ${item.price} $ = ${item.quantity}
 
           <div className={s.wrap}>
             <form onSubmit={postTelegram}>
-              <h3>Add your address</h3>
+              <h3>Legg til din adresse</h3>
               <div className={s.inputGroup}>
-                <input type="text" placeholder="Phone number to contact with you" required />
-                <input type="text" placeholder="Name" required />
-                <input type="email" placeholder="Email" required />
+                <input type="text" placeholder="Telefonnummer for kontakt" required />
+                <input type="text" placeholder="Navn" required />
+                <input type="email" placeholder="E-post" required />
               </div>
 
-              <h3>Shipment</h3>
+              <h3>Frakt</h3>
               <div className={s.inputGroup}>
-                <input type="text" placeholder="Home address" required />
-                <input type="text" placeholder="Add comment (optional)" />
+                <input type="text" placeholder="Hjemmeadresse" required />
+                <input type="text" placeholder="Legg til kommentar (valgfritt)" />
               </div>
 
               <div className={s.total}>
                 <h4>${cartTotal}</h4>
-                <Button type="submit">Pay</Button>
+                <Button type="submit">Betal</Button>
               </div>
             </form>
           </div>

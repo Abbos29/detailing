@@ -16,7 +16,7 @@ export const getServerSideProps = async () => {
 const category = ({ categories }) => {
     return (
         <>
-            <Seo title={'Categories Page'}/>
+            <Seo />
             <CategoryWrap categories={categories} />
             <ContactForm />
 

@@ -1,4 +1,5 @@
 import AboutWrap from '@/components/layout/AboutWrap/AboutWrap'
+import Seo from '@/components/ui/Seo/Seo'
 import { axiosInstanceProducts } from '@/utils/axios_products'
 import { axiosInstanceShared } from '@/utils/axios_shared'
 import React from 'react'
@@ -17,6 +18,7 @@ export const getServerSideProps = async () => {
 const about = ({ brands, about_us }) => {
     return (
         <>
+            <Seo />
             <AboutWrap brands={brands} about_us={about_us} />
         </>
     )

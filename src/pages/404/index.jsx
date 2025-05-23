@@ -5,10 +5,7 @@ import React from 'react'
 const ErrorPage = () => {
     return (
         <>
-            <Seo
-                title="404 Error"
-                description="ASM platform for managing copyrights and licenses. Creating contracts, protecting property, rights marketplace."
-            />
+            <Seo title="404 Error" />
             <ErrorWrap />
         </>
     )

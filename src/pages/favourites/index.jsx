@@ -9,7 +9,7 @@ const FavouritesPage = () => {
     const isClient = useIsClient()
     return (
         <>
-            <Seo title='Detailing - Favourites' />
+            <Seo />
             {isClient && <FavouritesWrap fav={fav} />}
         </>
     )
