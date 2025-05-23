@@ -7,7 +7,7 @@ const benefitsData = [
     {
         id: 1,
         image: "/img/benefit1.png",
-        title: "Utvendig Detaljering",
+        title: "Utvendig Detailing",
         text: "Med over 10 års erfaring innen bilpleie er Sparkle & Shine Auto Detailing din pålitelige partner for førsteklasses bilpleie.",
         list: [
             "Håndvask og tørk",
@@ -20,7 +20,7 @@ const benefitsData = [
     {
         id: 2,
         image: "/img/benefit2.png",
-        title: "Innvendig Detaljering",
+        title: "Innvendig Detailing",
         text: "Vårt team av dyktige fagfolk bruker moderne teknikker og miljøvennlige produkter for å beskytte og gjenopprette kjøretøyet ditt. Vi mener at hver detalj teller og at kvalitet bygger langvarige relasjoner.",
         list: [
             "Dyp rengjøring av tepper, seter og trekk",
