@@ -1,5 +1,6 @@
 import CategoryWrap from '@/components/layout/CategoryWrap/CategoryWrap'
 import ContactForm from '@/components/layout/ContactForm/ContactForm'
+import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs'
 import Seo from '@/components/ui/Seo/Seo'
 import { axiosInstanceProducts } from '@/utils/axios_products'
 import React from 'react'
@@ -17,6 +18,7 @@ const category = ({ categories }) => {
     return (
         <>
             <Seo />
+
             <CategoryWrap categories={categories} />
             <ContactForm />
 

@@ -2,12 +2,16 @@ import React from 'react'
 import s from './ContactWrap.module.scss'
 import Container from '@/components/ui/Container/Container'
 import { FaClock, FaEnvelope, FaMapMarkerAlt, FaPhone, FaTimes } from 'react-icons/fa'
+import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs'
 
 const ContactWrap = () => {
     return (
         <>
             <section className={s.contactWrap}>
                 <Container>
+
+                    <Breadcrumbs />
+
                     <div className={s.wrapper}>
                         <h2>Kontakt vårt kontor</h2>
 

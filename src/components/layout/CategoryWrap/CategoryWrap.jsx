@@ -2,12 +2,15 @@ import React from 'react'
 import s from './CategoryWrap.module.scss'
 import Container from '../../ui/Container/Container'
 import Link from 'next/link'
+import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs'
 
 const CategoryWrap = ({ categories }) => {
     return (
         <>
             <section className={s.categoryWrap}>
                 <Container>
+                                <Breadcrumbs />
+                    
                     <div className={s.wrapper}>
                         {categories?.map((el) => {
                             return (

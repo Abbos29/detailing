@@ -17,10 +17,11 @@ const NavTop = ({ onLinkClick }) => {
                 Oslo
             </div>
 
-            <Link href="/shipping" onClick={handleClick}>Frakt og betaling</Link>
-            <Link href="/catalog" onClick={handleClick}>Produkter</Link>
-            <Link href="/about" onClick={handleClick}>Om oss</Link>
-            <Link href="/contact" onClick={handleClick}>Kontakt</Link>
+            <Link href="/frakt" onClick={handleClick}>Frakt og betaling</Link>
+            <Link href="/produkter" onClick={handleClick}>Produkter</Link>
+            <Link href="/omoss" onClick={handleClick}>Om oss</Link>
+            <Link href="/kontakt" onClick={handleClick}>Kontakt</Link>
+            <Link href="/kategorier" onClick={handleClick}>Kategorier</Link>
         </div>
     );
 };

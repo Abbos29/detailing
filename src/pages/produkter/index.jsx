@@ -108,7 +108,7 @@ export default function CatalogPage({ data, categories, brands, filters }) {
 
   return (
     <>
-      <Seo />
+      <Seo title={'Produkter'} />
       <Container>
         <Breadcrumbs />
         <CatalogBanner />

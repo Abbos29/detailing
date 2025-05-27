@@ -18,7 +18,8 @@ export const getServerSideProps = async () => {
 const about = ({ brands, about_us }) => {
     return (
         <>
-            <Seo />
+            <Seo title={'Om oss'} />
+
             <AboutWrap brands={brands} about_us={about_us} />
         </>
     )
