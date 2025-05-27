@@ -21,7 +21,7 @@ const NavTop = ({ onLinkClick }) => {
             <Link href="/produkter" onClick={handleClick}>Produkter</Link>
             <Link href="/omoss" onClick={handleClick}>Om oss</Link>
             <Link href="/kontakt" onClick={handleClick}>Kontakt</Link>
-            <Link href="/kategorier" onClick={handleClick}>Kategorier</Link>
+            <Link href="/catalog" onClick={handleClick}>Kategorier</Link>
         </div>
     );
 };
