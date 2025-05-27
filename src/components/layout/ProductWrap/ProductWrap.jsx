@@ -104,7 +104,7 @@ const ProductWrap = ({ singleProduct }) => {
               {singleProduct?.short_description}
             </p>
 
-            <div className={s.price}>${singleProduct?.price}</div>
+            <div className={s.price}>{singleProduct?.price} kr</div>
 
             <div className={s.meta}>
               <p>Tilgjengelighet: <span>{singleProduct?.availability ? 'På lager' : 'Ikke tilgjengelig'}</span></p>

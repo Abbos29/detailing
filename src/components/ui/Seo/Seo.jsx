@@ -10,7 +10,7 @@ const Seo = ({
     const defaultTitle = 'Nartek - Kreative løsninger for din bedrift';
     const defaultDescription = 'Nartek tilbyr profesjonelle tjenester innen webdesign, merkevarebygging og digital markedsføring. Vi hjelper bedrifter å vokse med kreative, effektive og moderne løsninger.';
     const defaultKeywords = 'webdesign, merkevarebygging, digital markedsføring, kreative løsninger, norske bedrifter, UX, UI, e-handel, utvikling';
-    const defaultImage = '/logo.png';
+    const defaultImage = '/img/nartek-favicon.png';
     const defaultUrl = 'https://nartek.no/';
 
     return (
@@ -41,7 +41,7 @@ const Seo = ({
 
             {/* Favicon */}
             {/* <link rel="icon" href="/favicon.ico" /> */}
-            <link rel="icon" href="/logo.png" />
+            <link rel="icon" href="/img/nartek-favicon.png" />
         </Head>
     )
 }

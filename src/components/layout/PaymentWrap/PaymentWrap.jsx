@@ -24,7 +24,7 @@ ${items
           .map((item) => {
             return `
 <b>${item.name}</b>
-${item.quantity} x ${item.price} $ = ${item.quantity} 
+${item.quantity} x ${item.price} kr = ${item.quantity} 
     `;
           })
           .join("")}        
@@ -70,7 +70,7 @@ ${item.quantity} x ${item.price} $ = ${item.quantity}
               </div>
 
               <div className={s.total}>
-                <h4>${cartTotal}</h4>
+                <h4>{cartTotal} kr</h4>
                 <Button type="submit">Betal</Button>
               </div>
             </form>

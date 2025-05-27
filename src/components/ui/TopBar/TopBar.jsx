@@ -18,7 +18,7 @@ const TopBar = () => {
                     </div>
 
                     <div className={s.contactInfo}>
-                        <a href='tel:123456789'><FaPhone /> 1-234-567-899</a>
+                        <a href='tel:+4791923373'><FaPhone /> +47 919 23 373</a>
                         <Link href="/gift-cards">Gavekort</Link>
                         <Link href="/track-order">Spor bestilling</Link>
                         <Link href="/help-center">Hjelpesenter</Link>

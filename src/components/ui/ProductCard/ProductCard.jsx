@@ -9,7 +9,7 @@ const ProductCard = ({ id, image, name, price, view }) => {
                 <img src={image} alt={name} />
                 <div>
                     <h3>{name}</h3>
-                    <h4>$ {price}</h4>
+                    <h4>{price} kr</h4>
                 </div>
             </div>
         </Link>

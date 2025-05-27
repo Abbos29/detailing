@@ -1,5 +1,6 @@
 @import "@/styles/vars.scss";
 
+
 .header {
     @media (max-width: $breakpointMobile) {
         padding: 15px 0;
@@ -33,14 +34,16 @@
     display: flex;
     align-items: center;
     gap: 60px;
+    margin-bottom: 50px;
 }
 
 .logo {
-    width: 45px;
+    width: 90px;
 
     img {
-        width: 45px;
-        aspect-ratio: 1;
+        width: 90px;
+        object-fit: contain;
+        // aspect-ratio: 1;
     }
 }
 

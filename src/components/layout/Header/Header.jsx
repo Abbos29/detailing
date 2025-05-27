@@ -57,7 +57,7 @@ const Header = () => {
 
                     <div className={s.wrap}>
                         <Link href="/" className={s.logo}>
-                            <img src="/logo.png" alt="logo" />
+                            <img src="/img/nartek-logo.png" alt="logo" />
                         </Link>
 
                         <div className={`${s.burgerMenu} ${isMenu ? s.active : ''}`}>

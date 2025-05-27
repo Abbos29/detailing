@@ -25,7 +25,7 @@ export default function Home({ products }) {
       <Benefits />
       <RandomCards products={products} />
       <Faq />
-      <Reviews />
+      {/* <Reviews /> */}
     </>
   );
 }
