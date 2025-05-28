@@ -4,6 +4,15 @@
   font-family: "Work Sans", sans-serif;
 }
 
+#__next {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+
+  footer {
+    margin-top: auto;
+  }
+}
 section {
   padding: 35px 0;
 

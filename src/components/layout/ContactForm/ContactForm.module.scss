@@ -1,6 +1,6 @@
 .contactForm {
     padding: 60px 0;
-    
+
     @media (max-width: 768px) {
         padding: 40px 0;
     }
@@ -10,11 +10,11 @@
     display: flex;
     align-items: center;
     gap: 60px;
-    
+
     @media (max-width: 992px) {
         gap: 40px;
     }
-    
+
     @media (max-width: 768px) {
         flex-direction: column;
         align-items: stretch;
@@ -24,7 +24,7 @@
 
 .left {
     flex: 1;
-    
+
     @media (max-width: 768px) {
         width: 100%;
     }
@@ -33,7 +33,7 @@
 .right {
     flex: 1;
     line-height: 1.2;
-    
+
     @media (max-width: 768px) {
         // width: 100%;
         text-align: left;
@@ -47,7 +47,7 @@
     height: auto;
     object-fit: cover;
     border-radius: 12px;
-    
+
     @media (max-width: 768px) {
         max-width: 100%;
     }
@@ -77,22 +77,27 @@
     display: block;
     margin-bottom: 32px;
 
+    a {
+        color: #192449;
+        text-decoration: none;
+    }
+
     @media (max-width: 480px) {
         font-size: 26px;
-      }
+    }
 }
 
 .contactForm_input {
     width: 100%;
     max-width: 515px;
-    height: 70px;
+    height: 60px;
     padding: 0 0 0 20px;
-    border: 2px solid #BABECC;
+    border: 2px solid #babecc;
     font-size: 16px;
     font-weight: 500;
     border-radius: 7px;
     margin-bottom: 20px;
-    
+
     @media (max-width: 768px) {
         width: 280px;
         height: 55px;
@@ -102,7 +107,7 @@
 .contactForm_button {
     width: 283px;
     height: 48px;
-    background-color: #1C2952;
+    background-color: #1c2952;
     color: white;
     border: none;
     cursor: pointer;
@@ -110,11 +115,11 @@
     font-size: 16px;
     font-weight: 500;
     transition: background-color 0.3s ease;
-    
+
     &:hover {
-        background-color: darken(#1C2952, 5%);
+        background-color: darken(#1c2952, 5%);
     }
-    
+
     @media (max-width: 480px) {
         width: 100%;
         max-width: 283px;

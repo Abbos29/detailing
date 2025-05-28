@@ -10,11 +10,11 @@ const TopBar = () => {
             <Container>
                 <div className={s.wrap}>
                     <div className={s.ship}>
-                        <p>Gratis frakt over 199 $*</p>
-                        <p>
+                        <p>Gratis frakt over 2999kr*</p>
+                        {/* <p>
                             9,95 $ fast fraktkostnad
                             <FaGlobe className={s.icon} />
-                        </p>
+                        </p> */}
                     </div>
 
                     <div className={s.contactInfo}>

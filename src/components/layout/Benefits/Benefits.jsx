@@ -8,7 +8,7 @@ const benefitsData = [
         id: 1,
         image: "/img/benefit1.png",
         title: "Utvendig Detailing",
-        text: "Med over 10 års erfaring innen bilpleie er Sparkle & Shine Auto Detailing din pålitelige partner for førsteklasses bilpleie.",
+        text: "Med over 10 års erfaring innen bilpleie er Nartek din pålitelige partner for førsteklasses bilpleie.",
         list: [
             "Håndvask og tørk",
             "Voksing og polering",
@@ -58,7 +58,7 @@ const Benefits = () => {
 
                             <div className={s.content}>
                                 <h2>Du kan stole på våre merkevarer – de representerer kvalitet og tillit.</h2>
-                                <h3>Hos Solterra mener vi at design ikke bare handler om estetikk, men om å skape meningsfulle og bærekraftige rom.</h3>
+                                <h3>Hos Nartek mener vi at design ikke bare handler om estetikk, men om å skape meningsfulle og bærekraftige rom.</h3>
                                 <h4>Vi er forpliktet til å designe rom som balanserer eleganse, bærekraft og komfort. Vår visjon er å levere designløsninger som ikke bare ...</h4>
                                 <div className={s.gallery}>
                                     <img src="/img/benefit-main-1.png" alt="galleri-bilde" />
