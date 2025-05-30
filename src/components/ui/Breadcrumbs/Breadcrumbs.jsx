@@ -6,7 +6,6 @@ import s from './Breadcrumbs.module.scss'
 const Breadcrumbs = () => {
   const router = useRouter()
   
-  // Extract the path without query parameters
   const pathWithoutQuery = router.asPath.split('?')[0]
   const pathParts = pathWithoutQuery.split('/').filter((part) => part)
 
@@ -14,7 +13,6 @@ const Breadcrumbs = () => {
     <div className={s.breadcrumbs}>
       <Link href="/">Home</Link>
       {pathParts.map((part, index) => {
-        // Build the path for this breadcrumb
         const href = '/' + pathParts.slice(0, index + 1).join('/')
         
         return (

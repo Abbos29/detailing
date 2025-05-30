@@ -111,17 +111,18 @@ export default function CatalogPage({ data, categories, brands, filters }) {
       <Seo title={'Produkter'} />
       <Container>
         <Breadcrumbs />
-        <CatalogBanner />
 
-        <CatalogWrap
-          data={data}
-          categories={categories}
-          brands={brands}
-          filters={filters}
-          onFilterChange={handleFilterChange}
-          onPageChange={handlePageChange}
-        />
+        <CatalogBanner />
       </Container>
+
+      <CatalogWrap
+        data={data}
+        categories={categories}
+        brands={brands}
+        filters={filters}
+        onFilterChange={handleFilterChange}
+        onPageChange={handlePageChange}
+      />
     </>
   )
 }
