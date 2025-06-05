@@ -1,10 +1,12 @@
 import React from 'react'
 import s from './ContactWrap.module.scss'
 import Container from '@/components/ui/Container/Container'
-import { FaClock, FaEnvelope, FaMapMarkerAlt, FaPhone, FaTimes } from 'react-icons/fa'
+import { FaClock, FaEnvelope, FaFacebook, FaMapMarkerAlt, FaPhone, FaTimes } from 'react-icons/fa'
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs'
+import { LuInstagram } from "react-icons/lu";
 
-const ContactWrap = () => {
+
+const ContactWrap = ({ data }) => {
     return (
         <>
             <section className={s.contactWrap}>
@@ -19,24 +21,28 @@ const ContactWrap = () => {
                             <div>
                                 <p>Våre sosiale medier</p>
                                 <div className={s.socials}>
-                                    <a href="" target='_blank'><img src="/img/icon-vk.svg" alt="ikon" /></a>
-                                    <a href="" target='_blank'><img src="/img/icon-tg.svg" alt="ikon" /></a>
-                                    <a href="" target='_blank'><img src="/img/icon-wapp.svg" alt="ikon" /></a>
+                                    <a href={data[0]?.instagram} target='_blank'>
+                                        <LuInstagram />
+                                    </a>
+                                    <a href={data[0]?.telegram_channel} target='_blank'><img src="/img/icon-tg.svg" alt="ikon" /></a>
+                                    <a href={data[0]?.facebook} target='_blank'>
+                                        <FaFacebook />
+                                    </a>
                                 </div>
                             </div>
 
                             <div>
-                                <a href="">1 265 66 55 855</a>
+                                <a href={`tel: ${data[0]?.main_phone}`}>{data[0]?.main_phone}</a>
                                 <p>Vårt kontor i Oslo</p>
                             </div>
 
                             <div>
-                                <a href="">1 265 66 55 855</a>
+                                <a href={`tel: ${data[0]?.phone_2}`}>{data[0]?.phone_2}</a>
                                 <p>Ring oss 24/7</p>
                             </div>
 
                             <div>
-                                <a href="">1 265 66 55 855</a>
+                                <a href={`mailto: ${data[0]?.email}`}>{data[0]?.email}</a>
                                 <p>Send oss en e-post hvis du har spørsmål</p>
                             </div>
                         </div>
@@ -49,23 +55,23 @@ const ContactWrap = () => {
 
                                 <p>
                                     <FaClock className={s.icon} />
-                                    <b>Vi jobber:</b> Hver dag fra 08:00 til 19:00
+                                    <b>Vi jobber:</b> Hver dag fra {data[0]?.work_from?.slice(0, 5)} til {data[0]?.work_to?.slice(0, 5)}
                                 </p>
 
-                                <p>
+                                <a href={`mailto: ${data[0]?.location_link}`}>
                                     <FaMapMarkerAlt className={s.icon} />
-                                    <b>Adresse:</b> Oslo, Norge
-                                </p>
+                                    <b>Adresse:</b> {data[0]?.address}
+                                </a>
 
-                                <p>
+                                <a href={`mailto: ${data[0]?.email}`}>
                                     <FaEnvelope className={s.icon} />
-                                    <b>E-post:</b> sales@detailing.com
-                                </p>
+                                    <b>E-post:</b> {data[0]?.email}
+                                </a>
 
-                                <p>
+                                <a href={`tel: ${data[0]?.main_phone}`}>
                                     <FaPhone className={s.icon} />
-                                    <b>1 265 66 55 855</b>
-                                </p>
+                                    <b>{data[0]?.main_phone}</b>
+                                </a>
                             </div>
 
                         </div>

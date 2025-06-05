@@ -171,7 +171,9 @@
     align-items: center;
 
     .icon {
+        min-width: 40px;
         font-size: 33px;
         cursor: pointer;
+        color: #1f2d5b;
     }
 }
