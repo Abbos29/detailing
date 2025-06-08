@@ -9,7 +9,7 @@ const ContactForm = () => {
                 <Container>
                     <div className={s.wrapper}>
                         <div className={s.left}>
-                            <img className={s.picture} src="./oper.png" alt="" />
+                            <img className={s.picture} src="./img/oper-2.jpg" alt="" />
                         </div>
                         <div className={s.right}>
                             <h1 className={s.contactForm_h1}>Har du fortsatt spørsmål?</h1>

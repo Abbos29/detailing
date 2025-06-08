@@ -17,6 +17,7 @@ const RandomCards = ({ products }) => {
             <section className={s.randomCards}>
                 <Container>
                     <div className={s.wrapper}>
+                        <h2 className={s.title}>Populær</h2>
                         <Swiper
                             className={s.swiper}
                             pagination={true}
@@ -26,13 +27,13 @@ const RandomCards = ({ products }) => {
 
                             breakpoints={{
                                 0: {
-                                    slidesPerView: 1,
+                                    slidesPerView: 1.8,
                                 },
                                 520: {
-                                    slidesPerView: 2,
+                                    slidesPerView: 2.2,
                                 },
                                 992: {
-                                    slidesPerView: 3,
+                                    slidesPerView: 3.2,
                                 },
                             }}
                         >

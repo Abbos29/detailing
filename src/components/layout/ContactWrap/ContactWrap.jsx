@@ -49,22 +49,22 @@ const ContactWrap = () => {
 
                                 <p>
                                     <FaClock className={s.icon} />
-                                    <b>Vi jobber:</b> Hver dag fra 08:00 til 19:00
+                                    <b>Åpningstider:</b> Man-lør 09:00-1800
                                 </p>
 
                                 <p>
                                     <FaMapMarkerAlt className={s.icon} />
-                                    <b>Adresse:</b> Oslo, Norge
+                                    <b>Adresse:</b> Årvollskogen 42, 1529 Moss
                                 </p>
 
                                 <p>
                                     <FaEnvelope className={s.icon} />
-                                    <b>E-post:</b> sales@detailing.com
+                                    <b>E-post:</b> <a href="mailto:post@nartek.no">post@nartek.no</a>
                                 </p>
 
                                 <p>
                                     <FaPhone className={s.icon} />
-                                    <b>1 265 66 55 855</b>
+                                    <b>Telefon:</b> <a href="tel:+4791923373">+47 91923373</a>
                                 </p>
                             </div>
 

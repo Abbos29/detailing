@@ -22,8 +22,8 @@ export default function Home({ products }) {
       <Seo />
 
       <Hero />
-      <Benefits />
       <RandomCards products={products} />
+      <Benefits />
       <Faq />
       {/* <Reviews /> */}
     </>
