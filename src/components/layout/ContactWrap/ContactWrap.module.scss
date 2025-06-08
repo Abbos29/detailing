@@ -87,7 +87,8 @@
                 margin-bottom: 30px;
             }
 
-            p {
+            p,a {
+                text-decoration: none;
                 display: flex;
                 align-items: center;
                 flex-wrap: wrap;

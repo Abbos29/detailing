@@ -6,7 +6,7 @@ import TabsWrap from '@/components/ui/TabsWrap/TabsWrap';
 import { useCart } from 'react-use-cart';
 import { useIsClient } from 'usehooks-ts';
 import { IoMdHeart } from "react-icons/io";
-import { FaRegHeart } from 'react-icons/fa';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 
@@ -92,7 +92,7 @@ const ProductWrap = ({ singleProduct }) => {
               <h1 className={s.title}>{singleProduct?.name}</h1>
               {!isFavourite ?
                 <FaRegHeart className={s.icon} onClick={() => handleAddToFav(singleProduct)} /> :
-                <IoMdHeart className={s.icon} onClick={() => handleAddToFav(singleProduct)} />
+                <FaHeart className={s.icon} onClick={() => handleAddToFav(singleProduct)} />
               }
             </div>
 
