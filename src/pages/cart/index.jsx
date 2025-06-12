@@ -19,7 +19,7 @@ const Cart = () => {
                 </>
             ) : (
                 <div className="empty_cart">
-                    <img src="/img/empty.webp" alt="Tom handlekurv" />
+                    <img src="/img/empty.gif" alt="Tom handlekurv" />
                     <Link href={'/catalog'}>Gå tilbake til katalogen</Link>
                 </div>
             )}
