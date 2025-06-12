@@ -1,18 +1,18 @@
 import React from "react";
 import s from "./Benefits.module.scss";
 
-const Benefit = ({ image, title, text, list, position }) => {
+const Benefit = ({ main_image, title, description, position, tags }) => {
     return (
         <div className={`${s.benefit} ${s[position]}`}>
             <div className={s.image}>
-                <img src={image} alt={title} />
+                <img src={main_image} alt={title} />
             </div>
 
             <div className={s.content}>
                 <h2>{title}</h2>
-                <p>{text}</p>
+                <p>{description}</p>
                 <ul>
-                    {list.map((item, index) => (
+                    {tags?.map((item, index) => (
                         <li key={index}>{item}</li>
                     ))}
                 </ul>

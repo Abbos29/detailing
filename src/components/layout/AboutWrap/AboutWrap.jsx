@@ -8,8 +8,6 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs'
 const AboutWrap = ({ brands, about_us }) => {
     const aboutUsData = Array.isArray(about_us) ? about_us[0] : about_us;
 
-    console.log(about_us);
-
     return (
         <>
             <section className={s.aboutWrap}>
