@@ -123,3 +123,13 @@
         object-fit: cover;
     }
 }
+
+.benefits_card {
+    > div {
+        &:nth-child(odd) {
+            .content {
+                order: -1;
+            }
+        }
+    }
+}

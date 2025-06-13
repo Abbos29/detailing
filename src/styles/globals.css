@@ -13,14 +13,7 @@
     margin-top: auto;
   }
 }
-section {
-  padding: 35px 0;
 
-  @media (max-width: 768px) {
-    padding: 15px 0;
-
-  }
-}
 
 .swiper-pagination-bullet {
   margin: 0 3px !important;

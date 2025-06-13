@@ -28,9 +28,12 @@ const Benefits = ({ main_points, points }) => {
                             </div>
                         </div>
 
-                        {points?.map((benefit) => (
-                            <Benefit key={benefit?.id} {...benefit} />
-                        ))}
+                        <div className={s.benefits_card}>
+                            {points?.map((benefit) => (
+                                <Benefit key={benefit?.id} {...benefit} />
+                            ))}
+                        </div>
+
                     </div>
                 </Container>
             </section>
