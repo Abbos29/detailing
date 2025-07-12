@@ -18,11 +18,11 @@ export default function App({ Component, pageProps }) {
           shallowRouting
         />
         <CartProvider>
-          {/* <TopBar />
+          <TopBar />
           <Header />
           <Component {...pageProps} />
-          <Footer /> */}
-          <h2 style={{ color: "red" , padding: "100px 0", textAlign: "center", textTransform: "uppercase", fontSize: "44px"}}>don't work</h2>
+          <Footer />
+          {/* <h2 style={{ color: "red" , padding: "100px 0", textAlign: "center", textTransform: "uppercase", fontSize: "44px"}}>don't work</h2> */}
         </CartProvider>
       </AppContextProvider>
     </>

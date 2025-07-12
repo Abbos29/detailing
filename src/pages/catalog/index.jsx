@@ -109,11 +109,11 @@ export default function CatalogPage({ data, categories, brands, filters }) {
   return (
     <>
       <Seo title={'Produkter'} />
-      <Container>
+      <div>
         <Breadcrumbs />
+      </div>
 
-        <CatalogBanner />
-      </Container>
+      {/* <CatalogBanner /> */}
 
       <CatalogWrap
         data={data}
