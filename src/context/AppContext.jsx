@@ -1,10 +1,11 @@
+// AppContext.js
 const { createContext, useContext, useState, useEffect } = require("react");
-
 
 const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
     const [fav, setFav] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -28,13 +29,18 @@ export const AppContextProvider = ({ children }) => {
         });
     };
 
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
 
     const value = {
         handleAddToFav,
-        fav
+        fav,
+        isModalOpen,
+        openModal,
+        closeModal,
     };
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
-}
+};
 
 export const useAppContext = () => useContext(AppContext);

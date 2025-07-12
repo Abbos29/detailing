@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer/Footer";
 import { PagesProgressBar as ProgressBar } from 'next-nprogress-bar';
 import { CartProvider } from "react-use-cart";
 import { AppContextProvider } from "@/context/AppContext";
+import Modal from "../components/ui/Modal/Modal";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -22,6 +23,7 @@ export default function App({ Component, pageProps }) {
           <Header />
           <Component {...pageProps} />
           <Footer />
+          <Modal />
           {/* <h2 style={{ color: "red" , padding: "100px 0", textAlign: "center", textTransform: "uppercase", fontSize: "44px"}}>don't work</h2> */}
         </CartProvider>
       </AppContextProvider>

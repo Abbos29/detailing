@@ -9,8 +9,8 @@ const CategoryWrap = ({ categories }) => {
         <>
             <section className={s.categoryWrap}>
                 <Container>
-                                <Breadcrumbs />
-                    
+                    <Breadcrumbs />
+
                     <div className={s.wrapper}>
                         {categories?.map((el) => {
                             return (

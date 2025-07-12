@@ -3,9 +3,23 @@
 }
 
 .wrapper {
+    // display: flex;
+    // flex-direction: column;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+      
+    }
+}
+
+.left {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 30px;
 }
 
 .wrap {
@@ -41,7 +55,7 @@
     max-width: 1050px;
 
     @media (max-width: 480px) {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
 }
 
@@ -67,12 +81,12 @@
     gap: 15px;
 
     @media (max-width: 768px) {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     @media (max-width: 480px) {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
 
     input {
@@ -105,6 +119,114 @@
     h4 {
         font-size: 28px;
         font-weight: 600;
-        color: #1C2952;
+        color: #1c2952;
     }
 }
+
+.summary {
+    flex: 1 1 30%;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: fit-content;
+
+    h3 {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    label {
+        font-size: 14px;
+        color: #444;
+    }
+
+    .promo {
+        display: flex;
+        gap: 10px;
+
+        input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        button {
+            background: #aaa;
+            border: none;
+            padding: 8px 14px;
+            color: white;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    }
+
+    .totalBlock {
+        border-top: 1px solid #ddd;
+        padding-top: 12px;
+        font-size: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .line {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+    }
+
+    .checkout {
+        background: #e60023;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+
+        &:hover {
+            background: #cc001f;
+        }
+    }
+
+    .continue {
+        border: 1px solid #ccc;
+        background: white;
+        padding: 12px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+
+        &:hover {
+            background: #eee;
+        }
+    }
+
+    .benefits {
+        font-size: 13px;
+        color: #444;
+        line-height: 1.6;
+        padding-left: 0;
+        list-style: none;
+
+        li {
+            padding-left: 16px;
+            position: relative;
+
+            &::before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                color: green;
+            }
+        }
+    }
+}
+

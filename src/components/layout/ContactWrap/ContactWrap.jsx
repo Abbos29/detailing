@@ -48,14 +48,16 @@ const ContactWrap = ({ data }) => {
                         </div>
 
                         <div className={s.wrap}>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d128084.03976962183!2d10.620310792570292!3d59.89375209660966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416e61f267f039%3A0x7e92605fd3231e9a!2z0J7RgdC70L4sINCd0L7RgNCy0LXQs9C40Y8!5e0!3m2!1sru!2slt!4v1745667436905!5m2!1sru!2slt" width="600" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                            {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d128084.03976962183!2d10.620310792570292!3d59.89375209660966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416e61f267f039%3A0x7e92605fd3231e9a!2z0J7RgdC70L4sINCd0L7RgNCy0LXQs9C40Y8!5e0!3m2!1sru!2slt!4v1745667436905!5m2!1sru!2slt" width="600" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe> */}
+
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d128084.03976962183!2d10.620310792570292!3d59.89375209660966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416e61f267f039%3A0x7e92605fd3231e9a!2z0J7RgdC70L4sINCd0L7RgNCy0LXQs9C40Y8!5e0!3m2!1sno!2sno!4v1745667436905!5m2!1sno!2sno" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                             <div className={s.box}>
                                 <h2>Vår kontakt</h2>
 
                                 <p>
                                     <FaClock className={s.icon} />
-                                    <b>Vi jobber:</b> Hver dag fra {data[0]?.work_from?.slice(0, 5)} til {data[0]?.work_to?.slice(0, 5)}
+                                    <b>Åpningstider:</b> Man–lør {data[0]?.work_from?.slice(0, 5)} til {data[0]?.work_to?.slice(0, 5)}
                                 </p>
 
                                 <a href={`mailto: ${data[0]?.location_link}`}>
@@ -70,7 +72,7 @@ const ContactWrap = ({ data }) => {
 
                                 <a href={`tel: ${data[0]?.main_phone}`}>
                                     <FaPhone className={s.icon} />
-                                    <b>{data[0]?.main_phone}</b>
+                                    <b>Telefon: </b>{data[0]?.main_phone}
                                 </a>
                             </div>
 

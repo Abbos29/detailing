@@ -2,8 +2,14 @@ import React from 'react'
 import s from './Footer.module.scss'
 import Container from '@/components/ui/Container/Container'
 import Link from 'next/link'
+// import { useAppContext } from '../../../context/AppContext'
+import { useAppContext } from '@/context/AppContext';
+
 
 const Footer = () => {
+
+    const { openModal } = useAppContext();
+
     return (
         <footer className={s.footer}>
             <Container>
@@ -13,7 +19,9 @@ const Footer = () => {
                         <p>
                             Få 10 % rabatt på din første bestilling når du abonnerer på eksklusive tilbud og produktnyheter!
                         </p>
-                        <button>Meld deg på</button>
+                        {/* <button>Meld deg på</button> */}
+                        <button onClick={openModal}>Meld deg på</button>
+
                     </div>
                     <div className={s.item}>
                         <h3>Kundeservice</h3>

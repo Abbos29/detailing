@@ -14,8 +14,10 @@ const NavTop = ({ onLinkClick }) => {
         <div className={s.nav}>
             <div className={s.location}>
                 <FaLocationArrow className={s.icon} />
-                Oslo
+                {/* Oslo */}
+                <Link href="/kontakt" onClick={handleClick}>Oslo</Link>
             </div>
+
 
             {/* <Link href="/frakt" onClick={handleClick}>Frakt og betaling</Link> */}
             <Link href="/catalog" onClick={handleClick}>Produkter</Link>

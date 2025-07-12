@@ -5,7 +5,6 @@ import Button from '@/components/ui/Button/Button';
 import TabsWrap from '@/components/ui/TabsWrap/TabsWrap';
 import { useCart } from 'react-use-cart';
 import { useIsClient } from 'usehooks-ts';
-import { IoMdHeart } from "react-icons/io";
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
@@ -23,7 +22,14 @@ const ProductWrap = ({ singleProduct }) => {
 
   const { fav, handleAddToFav } = useAppContext();
   const isFavourite = fav.some((favItem) => favItem.id === singleProduct?.id);
-  const { getItem, addItem, removeItem } = useCart();
+
+  const {
+    getItem,
+    addItem,
+    updateItemQuantity,
+    removeItem
+  } = useCart();
+
   const isClient = useIsClient();
 
   const handleThumbnailClick = (imageUrl) => {
@@ -34,7 +40,6 @@ const ProductWrap = ({ singleProduct }) => {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating - fullStars >= 0.5;
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-
     const stars = [];
 
     for (let i = 0; i < fullStars; i++) {
@@ -51,6 +56,8 @@ const ProductWrap = ({ singleProduct }) => {
 
     return stars;
   };
+
+  const cartItem = getItem(singleProduct?.id);
 
   return (
     <section className={s.productWrap}>
@@ -90,10 +97,11 @@ const ProductWrap = ({ singleProduct }) => {
 
             <div className={s.twink}>
               <h1 className={s.title}>{singleProduct?.name}</h1>
-              {!isFavourite ?
-                <FaRegHeart className={s.icon} onClick={() => handleAddToFav(singleProduct)} /> :
+              {!isFavourite ? (
+                <FaRegHeart className={s.icon} onClick={() => handleAddToFav(singleProduct)} />
+              ) : (
                 <FaHeart className={s.icon} onClick={() => handleAddToFav(singleProduct)} />
-              }
+              )}
             </div>
 
             <div className={s.rating}>
@@ -113,10 +121,30 @@ const ProductWrap = ({ singleProduct }) => {
 
             {isClient && (
               <div className={s.controls}>
-                {!getItem(singleProduct?.id) ? (
+                {!cartItem ? (
                   <Button onClick={() => addItem(singleProduct)}>Legg i handlekurv</Button>
                 ) : (
-                  <Button onClick={() => removeItem(singleProduct?.id)}>Fjern fra handlekurv</Button>
+                  <div className={s.counter}>
+                    <button
+                      onClick={() =>
+                        updateItemQuantity(singleProduct?.id, cartItem.quantity + 1)
+                      }
+                    >
+                      +
+                    </button>
+                    <span>{cartItem.quantity}</span>
+                    <button
+                      onClick={() => {
+                        if (cartItem.quantity > 1) {
+                          updateItemQuantity(singleProduct?.id, cartItem.quantity - 1);
+                        } else {
+                          removeItem(singleProduct?.id);
+                        }
+                      }}
+                    >
+                      -
+                    </button>
+                  </div>
                 )}
               </div>
             )}
