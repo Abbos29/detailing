@@ -7,10 +7,13 @@ import { PagesProgressBar as ProgressBar } from 'next-nprogress-bar';
 import { CartProvider } from "react-use-cart";
 import { AppContextProvider } from "@/context/AppContext";
 import Modal from "../components/ui/Modal/Modal";
+import Seo from "../components/ui/Seo/Seo";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Seo />
+
       <AppContextProvider>
         <ProgressBar
           height="3px"

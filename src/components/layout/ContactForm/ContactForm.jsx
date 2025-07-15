@@ -17,7 +17,7 @@ const ContactForm = () => {
                             <h2 className={s.contactForm_h2}>Ring oss</h2>
                             {/* <b className={s.contactForm_b}>1 265 65 66 669</b> */}
                             <b className={s.contactForm_b}>
-                                <a href="mailto:sales@detailing.com">sales@detailing.com</a>
+                                <a href="mailto:Post@nartek.no">Post@nartek.no</a>
                             </b>
                             <br />
                             <input className={s.contactForm_input} type="number" placeholder='Ditt nummer' />

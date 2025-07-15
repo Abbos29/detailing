@@ -102,6 +102,7 @@
 .pagination {
 
   gap: 4px;
+
   .page-item {
     a {
       background-color: transparent !important;
@@ -127,4 +128,18 @@
     }
   }
 
+}
+
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  p {
+    &:first-child {
+      font-weight: 600;
+      font-size: 20px;
+    }
+  }
 }
