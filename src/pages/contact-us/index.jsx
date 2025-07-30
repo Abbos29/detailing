@@ -1,15 +1,30 @@
 import React from 'react';
 import Container from '@/components/ui/Container/Container';
+import { axiosInstanceFooter } from '@/utils/axios_footer';
 
-const ContactUs = () => (
+export const getServerSideProps = async () => {
+    try {
+        const { data } = await axiosInstanceFooter.get('/footer-pages/4');
+        return {
+            props: { pageData: data },
+        };
+    } catch (error) {
+        return {
+            notFound: true,
+        };
+    }
+};
+
+const ContactUs = ({ pageData }) => (
     <section>
         <Container>
             <div className="wrap">
-                <p>Kontakt oss</p>
-                <p>Adresse: Årvollskogen 42, 1529 Moss</p>
-                <p>Telefon: +47 91923373</p>
-                <p>E-post: post@nartek.no</p>
-                <p>Kontaktform via nettsiden med svar innen 2 arbeidsdager</p>
+                <h1>{pageData.title}</h1>
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: pageData.description.replace(/\r\n/g, '<br />'),
+                    }}
+                />
             </div>
         </Container>
     </section>

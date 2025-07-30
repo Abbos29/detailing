@@ -1,17 +1,31 @@
 import React from 'react';
 import Container from '@/components/ui/Container/Container';
+import { axiosInstanceFooter } from '@/utils/axios_footer';
 
-const HelpCenter = () => (
-    <section>
-        <Container>
-            <div className="wrap">
-                <p>Kundeservice</p>
-                <p>Vi hjelper deg med alt du trenger – fra produktspørsmål til teknisk support.</p>
-                <p>Åpningstider: 09:00–17:00 (man–fre)</p>
-                <p>Kontakt oss via chat, e-post eller telefon.</p>
-            </div>
-        </Container>
+export const getServerSideProps = async () => {
+  try {
+    const { data } = await axiosInstanceFooter.get('/footer-pages/1');
+    return {
+      props: { pageData: data },
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
+};
+
+const HelpCenter = ({ pageData }) => {
+  return (
+    <section> 
+      <Container>
+        <div className="wrap">
+          <h1>{pageData.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: pageData.description.replace(/\r\n/g, '<br />') }} />
+        </div>
+      </Container>
     </section>
-);
+  );
+};
 
 export default HelpCenter;

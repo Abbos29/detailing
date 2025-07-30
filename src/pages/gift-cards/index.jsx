@@ -1,14 +1,30 @@
 import React from 'react';
 import Container from '@/components/ui/Container/Container';
+import { axiosInstanceFooter } from '@/utils/axios_footer';
 
-const GiftCards = () => (
+export const getServerSideProps = async () => {
+    try {
+        const { data } = await axiosInstanceFooter.get('/footer-pages/10');
+        return {
+            props: { pageData: data },
+        };
+    } catch (error) {
+        return {
+            notFound: true,
+        };
+    }
+};
+
+const GiftCards = ({ pageData }) => (
     <section>
         <Container>
             <div className="wrap">
-                <p>Gavekort</p>
-                <p>Gi ekte bilglede i gave!</p>
-                <p>Vi tilbyr digitale gavekort i ulike prisklasser – perfekt som gave til en bilentusiast, kollega eller venn.</p>
-                <p>Kan brukes på hele vårt sortiment både på nett og i butikk.</p>
+                <h1>{pageData.title}</h1>
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: pageData.description.replace(/\r\n/g, '<br />'),
+                    }}
+                />
             </div>
         </Container>
     </section>

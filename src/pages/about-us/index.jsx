@@ -1,17 +1,32 @@
 import React from 'react';
 import Container from '@/components/ui/Container/Container';
+import { axiosInstanceFooter } from '@/utils/axios_footer';
 
-const AboutUs = () => (
+export const getServerSideProps = async () => {
+    try {
+        const { data } = await axiosInstanceFooter.get('/footer-pages/8');
+        return {
+            props: { pageData: data },
+        };
+    } catch (error) {
+        return {
+            notFound: true,
+        };
+    }
+};
+
+const AboutUs = ({ pageData }) => (
     <section>
         <Container>
             <div className="wrap">
-                <p>Om oss</p>
-                <p>Velkommen til Nartek.no – din pålitelige partner innen bilpleie.</p>
-                <p>Vi er et dedikert team med over 15 års erfaring, og bruker kun metoder og produkter vi selv stoler på.</p>
-                <p>Vår filosofi er enkel: Riktig pleie gir bedre resultater – og varer lenger.</p>
+                <h1>{pageData.title}</h1>
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: pageData.description.replace(/\r\n/g, '<br />'),
+                    }}
+                />
             </div>
         </Container>
     </section>
 );
-
 export default AboutUs;

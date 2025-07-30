@@ -1,15 +1,34 @@
 import React from 'react';
 import Container from '@/components/ui/Container/Container';
+import { axiosInstanceFooter } from '@/utils/axios_footer';
 
-const MilitaryFirstResponders = () => (
+export const getServerSideProps = async () => {
+    try {
+        const { data } = await axiosInstanceFooter.get('/footer-pages/6');
+        return {
+            props: { pageData: data },
+        };
+    } catch (error) {
+        return {
+            notFound: true,
+        };
+    }
+};
+
+const MilitaryFirstResponders = ({ pageData }) => (
     <section>
         <Container>
             <div className="wrap">
-                <p>Militær og nødetater</p>
-                <p>Vi verdsetter innsatsen til militærpersonell og nødetater – og tilbyr spesialrabatter som takk for tjenesten.</p>
+                <h1>{pageData.title}</h1>
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: pageData.description.replace(/\r\n/g, '<br />'),
+                    }}
+                />
             </div>
         </Container>
     </section>
 );
+
 
 export default MilitaryFirstResponders;

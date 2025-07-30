@@ -1,18 +1,33 @@
 import React from 'react';
 import Container from '@/components/ui/Container/Container';
+import { axiosInstanceFooter } from '@/utils/axios_footer';
 
-const ShippingDelivery = () => (
-    <section>
-        <Container>
-            <div className="wrap">
-                <p>Frakt og levering</p>
-                <p>Standardlevering: 3–5 virkedager i Norge</p>
-                <p>Ekspresslevering: neste virkedag innen kl. 12</p>
-                <p>Gratis frakt ved kjøp over 1500 kr</p>
-                <p>Sporingsnummer sendes etter avsendelse</p>
-            </div>
-        </Container>
-    </section>
+export const getServerSideProps = async () => {
+  try {
+    const { data } = await axiosInstanceFooter.get('/footer-pages/2');
+    return {
+      props: { pageData: data },
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
+};
+
+const ShippingDelivery = ({ pageData }) => (
+  <section>
+    <Container>
+      <div className="wrap">
+        <h1>{pageData.title}</h1>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: pageData.description.replace(/\r\n/g, '<br />'),
+          }}
+        />
+      </div>
+    </Container>
+  </section>
 );
 
 export default ShippingDelivery;

@@ -1,20 +1,34 @@
 import React from 'react';
 import Container from '@/components/ui/Container/Container';
+import { axiosInstanceFooter } from '@/utils/axios_footer';
 
-const ClassesWorkshops = () => (
+export const getServerSideProps = async () => {
+    try {
+        const { data } = await axiosInstanceFooter.get('/footer-pages/7');
+        return {
+            props: { pageData: data },
+        };
+    } catch (error) {
+        return {
+            notFound: true,
+        };
+    }
+};
+
+const ClassesWorkshops = ({ pageData }) => (
     <section>
         <Container>
             <div className="wrap">
-                <p>Kurs og verksteder</p>
-                <p>Ønsker du å lære foliering, solfilm eller bilpleie på et høyere nivå?</p>
-                <p>Vi tilbyr praktiske kurs innen:</p>
-                <p>PPF-foliering (Paint Protection Film)</p>
-                <p>Vinyl wrapping</p>
-                <p>Solfilm-installasjon</p>
-                <p>Våre kurs passer både nybegynnere og viderekomne og holdes i samarbeid med profesjonelle fagfolk.</p>
+                <h1>{pageData.title}</h1>
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: pageData.description.replace(/\r\n/g, '<br />'),
+                    }}
+                />
             </div>
         </Container>
     </section>
 );
+
 
 export default ClassesWorkshops;

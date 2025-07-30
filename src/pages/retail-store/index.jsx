@@ -1,13 +1,30 @@
 import React from 'react';
 import Container from '@/components/ui/Container/Container';
+import { axiosInstanceFooter } from '@/utils/axios_footer';
 
-const RetailStore = () => (
+export const getServerSideProps = async () => {
+    try {
+        const { data } = await axiosInstanceFooter.get('/footer-pages/9');
+        return {
+            props: { pageData: data },
+        };
+    } catch (error) {
+        return {
+            notFound: true,
+        };
+    }
+};
+
+const RetailStore = ({ pageData }) => (
     <section>
         <Container>
             <div className="wrap">
-                <p>Butikk</p>
-                <p>Visste du at vi også har fysisk butikk?</p>
-                <p>Du finner oss i garasjen til Wrapstudio, der du kan kjøpe det meste innen bilpleie – med samme kvalitetsprodukter og service som på nett.</p>
+                <h1>{pageData.title}</h1>
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: pageData.description.replace(/\r\n/g, '<br />'),
+                    }}
+                />
             </div>
         </Container>
     </section>

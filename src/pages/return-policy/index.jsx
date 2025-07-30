@@ -1,18 +1,33 @@
 import React from 'react';
 import Container from '@/components/ui/Container/Container';
+import { axiosInstanceFooter } from '@/utils/axios_footer';
 
-const ReturnPolicy = () => (
-    <section>
-        <Container>
-            <div className="wrap">
-                <p>Returpolicy</p>
-                <p>30 dagers åpent kjøp fra leveringsdato</p>
-                <p>Varene må være i original tilstand</p>
-                <p>Lastes opp returskjema og pakkelapp via kundesiden</p>
-                <p>Refundering via original betalingsmetode innen 5 virkedager etter mottak</p>
-            </div>
-        </Container>
-    </section>
+export const getServerSideProps = async () => {
+  try {
+    const { data } = await axiosInstanceFooter.get('/footer-pages/3');
+    return {
+      props: { pageData: data },
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
+};
+
+const ReturnPolicy = ({ pageData }) => (
+  <section>
+    <Container>
+      <div className="wrap">
+        <h1>{pageData.title}</h1>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: pageData.description.replace(/\r\n/g, '<br />'),
+          }}
+        />
+      </div>
+    </Container>
+  </section>
 );
 
 export default ReturnPolicy;
